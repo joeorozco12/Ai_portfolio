@@ -1,0 +1,9 @@
+Case_ID,Topology,VIN_Min_V,VIN_Nom_V,VIN_Max_V,LED_String_VF_Nom_V,LED_Current_A,Ambient_Temp_C,Efficiency_Assumption,Current_Tol_pct,Sense_Res_Tol_pct,Inductor_Tol_pct,Output_Power_W,Input_Current_Nom_A,Thermal_Risk,Review_Status
+SYN-WCCA-001,Buck LED Driver,9.0,13.5,16.0,6.4,0.7,85,0.88,5,1,20,4.48,0.377,Low,Needs review
+SYN-WCCA-002,Buck LED Driver,9.0,13.5,16.0,8.2,0.8,85,0.87,5,1,20,6.56,0.559,Medium,Needs review
+SYN-WCCA-003,Boost LED Driver,9.0,13.5,16.0,18.5,0.6,95,0.86,5,1,20,11.1,0.956,Medium,Needs review
+SYN-WCCA-004,SEPIC LED Driver,9.0,13.5,16.0,13.2,1.0,105,0.84,5,1,20,13.2,1.164,High,Needs review
+SYN-WCCA-005,Linear LED Channel,9.0,13.5,16.0,10.5,0.35,85,0.75,5,1,0,3.68,0.363,Medium,Needs review
+SYN-WCCA-006,Buck LED Driver,9.0,13.5,16.0,12.0,0.5,105,0.88,5,1,20,6.0,0.505,Medium,Needs review
+SYN-WCCA-007,Boost LED Driver,9.0,13.5,16.0,24.0,0.45,95,0.85,5,1,20,10.8,0.941,Medium,Needs review
+SYN-WCCA-008,SEPIC LED Driver,9.0,13.5,16.0,15.0,0.8,105,0.83,5,1,20,12.0,1.071,High,Needs review
