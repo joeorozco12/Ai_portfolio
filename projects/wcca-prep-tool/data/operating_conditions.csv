@@ -1,0 +1,5 @@
+Condition_ID,Description,VIN_V,Ambient_Temp_C,Load_Current_Factor
+SYN-OC-LOWLINE-HOT,Low-line hot synthetic corner,9.0,105,1.00
+SYN-OC-NOMINAL,Nominal synthetic operating point,13.5,85,1.00
+SYN-OC-HIGHLINE-HOT,High-line hot synthetic corner,16.0,105,1.00
+SYN-OC-HIGHLOAD-HOT,Low-line high-load synthetic corner,9.0,105,1.05
