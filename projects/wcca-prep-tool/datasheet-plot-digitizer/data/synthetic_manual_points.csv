@@ -1,0 +1,9 @@
+point_id,source_pixel_x,source_pixel_y,review_status,notes
+P01,152,415.5,draft_extraction,synthetic low-current point
+P02,188,406.5,draft_extraction,synthetic low-current knee point
+P03,224,382.2,draft_extraction,synthetic rising-current point
+P04,260,330.0,draft_extraction,synthetic nominal-anchor-style point
+P05,296,267.0,draft_extraction,synthetic mid-current point
+P06,332,195.0,draft_extraction,synthetic high-current point
+P07,368,123.0,draft_extraction,synthetic high-current point
+P08,404,69.0,draft_extraction,synthetic upper-range point

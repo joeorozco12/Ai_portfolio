@@ -1,0 +1,93 @@
+"""Synthetic sample project for the LED datasheet plot digitizer."""
+
+from __future__ import annotations
+
+import csv
+from pathlib import Path
+
+from .calibration import AxisCalibration, CurveCalibration, EngineeringPoint
+
+
+SAMPLE_METADATA = {
+    "part_number": "SYN-LED-170",
+    "manufacturer": "Synthetic LED Supplier",
+    "datasheet_source": "synthetic_datasheet_style_plot",
+    "curve_name": "forward_voltage_vs_forward_current",
+    "x_axis": {
+        "label": "Forward Voltage",
+        "unit": "V",
+        "scale": "linear",
+    },
+    "y_axis": {
+        "label": "Forward Current",
+        "unit": "mA",
+        "scale": "linear",
+    },
+    "source_page": "synthetic_page_20",
+    "source_section": "synthetic_forward_current_characteristics",
+    "crop_region_px": {
+        "left": 60,
+        "top": 40,
+        "width": 540,
+        "height": 410,
+    },
+    "axis_calibration": {
+        "x_pixel_low": 80.0,
+        "x_pixel_high": 560.0,
+        "x_value_low": 2.5,
+        "x_value_high": 4.5,
+        "y_pixel_low": 420.0,
+        "y_pixel_high": 60.0,
+        "y_value_low": 0.0,
+        "y_value_high": 4000.0,
+    },
+    "digitization_method": "manual_calibration_plus_manual_curve_pick",
+    "fit_model": "pchip_shape_preserving_interpolation",
+    "review_status": "draft_extraction",
+    "publication_classification": "Needs review",
+    "engineering_note": (
+        "Reference-only synthetic plot data. Not guaranteed by a manufacturer. "
+        "Engineer review is required before use as WCCA or feasibility input."
+    ),
+}
+
+
+SAMPLE_CALIBRATION = CurveCalibration(
+    x_axis=AxisCalibration(
+        pixel_low=80.0,
+        pixel_high=560.0,
+        value_low=2.5,
+        value_high=4.5,
+        scale="linear",
+        label="Forward Voltage",
+        unit="V",
+    ),
+    y_axis=AxisCalibration(
+        pixel_low=420.0,
+        pixel_high=60.0,
+        value_low=0.0,
+        value_high=4000.0,
+        scale="linear",
+        label="Forward Current",
+        unit="mA",
+    ),
+)
+
+
+def load_sample_points(csv_path: Path) -> list[EngineeringPoint]:
+    """Load synthetic manual pixel picks and convert them to engineering units."""
+
+    with csv_path.open(newline="", encoding="utf-8") as handle:
+        rows = csv.DictReader(handle)
+        points = []
+        for row in rows:
+            points.append(
+                SAMPLE_CALIBRATION.pixel_to_engineering(
+                    point_id=row["point_id"],
+                    source_pixel_x=float(row["source_pixel_x"]),
+                    source_pixel_y=float(row["source_pixel_y"]),
+                    review_status=row["review_status"],
+                    notes=row["notes"],
+                )
+            )
+    return points
