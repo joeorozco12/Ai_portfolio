@@ -23,15 +23,18 @@ This tool prepares WCCA inputs and review artifacts. It is not a final WCCA appr
 
 ## Scope
 
-This Task 2 prototype is a deterministic WCCA preparation pipeline for synthetic automotive LED driver examples. It does not use proprietary circuit data, customer limits, internal derating rules, schematics, BOMs, harness data, cost data, validation data, or real program identifiers.
+This Task 2 proof package is a deterministic WCCA preparation pipeline for synthetic automotive LED driver examples. It does not use proprietary circuit data, customer limits, internal derating rules, schematics, BOMs, harness data, cost data, validation data, or real program identifiers.
 
-The first milestone is calculation plumbing only:
+The proof package demonstrates:
 
 - load synthetic WCCA case data from CSV
 - load synthetic operating conditions from CSV
 - run repeatable stress and derating calculations
 - generate a Markdown WCCA prep report
+- generate a CSV calculation summary
+- generate a PNG plot gallery
 - generate a missing-data warning report
+- generate clearly labeled mock capture artifacts
 - test the calculation engine
 
 ## Run
@@ -51,17 +54,35 @@ Default inputs:
 Default outputs:
 
 - [outputs/synthetic_wcca_report.md](outputs/synthetic_wcca_report.md)
+- [outputs/synthetic_wcca_summary.csv](outputs/synthetic_wcca_summary.csv)
 - [outputs/missing_data_warnings.md](outputs/missing_data_warnings.md)
+- [outputs/plots/](outputs/plots/)
+- [captures/](captures/)
 
 ## Portfolio Evidence
 
 - Synthetic input CSV: [data/synthetic_wcca_cases.csv](data/synthetic_wcca_cases.csv)
 - Operating conditions CSV: [data/operating_conditions.csv](data/operating_conditions.csv)
-- Generated calculation rows: 32 rows from 8 synthetic cases and 4 synthetic operating conditions
+- Generated calculation rows: 60 rows from 15 synthetic cases and 4 synthetic operating conditions
 - Generated report: [outputs/synthetic_wcca_report.md](outputs/synthetic_wcca_report.md)
+- Generated CSV summary: [outputs/synthetic_wcca_summary.csv](outputs/synthetic_wcca_summary.csv)
 - Missing-data warnings: [outputs/missing_data_warnings.md](outputs/missing_data_warnings.md)
+- Plot gallery:
+  - [outputs/plots/margin_by_case.png](outputs/plots/margin_by_case.png)
+  - [outputs/plots/worst_case_result_by_condition.png](outputs/plots/worst_case_result_by_condition.png)
+  - [outputs/plots/pass_fail_distribution.png](outputs/plots/pass_fail_distribution.png)
+  - [outputs/plots/thermal_temperature_sensitivity.png](outputs/plots/thermal_temperature_sensitivity.png)
+  - [outputs/plots/voltage_sensitivity.png](outputs/plots/voltage_sensitivity.png)
+- Mock captures:
+  - [captures/cli_run_mock.md](captures/cli_run_mock.md)
+  - [captures/generated_summary_table_mock.md](captures/generated_summary_table_mock.md)
+  - [captures/plot_gallery_preview_mock.md](captures/plot_gallery_preview_mock.md)
+  - [captures/report_preview_mock.md](captures/report_preview_mock.md)
+  - [captures/test_run_output_mock.md](captures/test_run_output_mock.md)
+- Equation review checklist: [docs/equation_review_checklist.md](docs/equation_review_checklist.md)
 - Unit tests: [tests/test_calculations.py](tests/test_calculations.py)
-- CLI execution result: `WCCA results: 32 rows`; `Warnings: 3`
+- Proof asset tests: [tests/test_proof_assets.py](tests/test_proof_assets.py)
+- CLI execution result: `WCCA results: 60 rows`; `Warnings: 3`; `Capture files: 5`
 
 ## Codex Contribution
 
@@ -81,11 +102,12 @@ Jose defines the engineering workflow intent, WCCA preparation boundary, review 
 
 ## Screenshot Placeholders
 
-- CLI run: `screenshots/cli_run.png`
-- Input CSV: `screenshots/input_csv.png`
-- Generated report: `screenshots/generated_report.png`
-- Missing-data warning output: `screenshots/missing_data_warnings.png`
-- Calculation output table: `screenshots/calculation_output_table.png`
+- CLI run: [captures/cli_run_mock.md](captures/cli_run_mock.md)
+- Input CSV: [data/synthetic_wcca_cases.csv](data/synthetic_wcca_cases.csv)
+- Generated report: [captures/report_preview_mock.md](captures/report_preview_mock.md)
+- Missing-data warning output: [outputs/missing_data_warnings.md](outputs/missing_data_warnings.md)
+- Calculation output table: [captures/generated_summary_table_mock.md](captures/generated_summary_table_mock.md)
+- Plot gallery preview: [captures/plot_gallery_preview_mock.md](captures/plot_gallery_preview_mock.md)
 
 ## Deterministic Calculation Summary
 
@@ -110,9 +132,8 @@ Synthetic status thresholds:
 ## Proof Gaps
 
 - Formulas are simplified WCCA preparation examples and need qualified engineering review before any public demo claim.
-- Plot generation is not included yet.
-- Screenshots are not included yet.
-- Monte Carlo and equation-review workflows are not included yet.
+- Real screenshots are not captured yet; current captures are clearly labeled mock captures.
+- Monte Carlo workflow is not included.
 - Reviewer checklist completion is still needed: [docs/equation_review_checklist.md](docs/equation_review_checklist.md)
 - The generated report remains draft output until reviewed against the sanitization checklist.
 
@@ -123,6 +144,6 @@ Needs review. The data and code are synthetic, but the formulas, output labels, 
 ## Next Improvements
 
 - Complete the equation review checklist with reviewer name, date, and comments.
-- Capture screenshots for the CLI run, input CSV, generated report, warning output, and calculation table.
-- Add plot outputs after deterministic formulas are reviewed.
+- Replace mock captures with real screenshots after final layout review.
+- Add a one-page plot gallery screenshot for the portfolio page.
 - Add AI narrative only after deterministic outputs are accepted through human review.

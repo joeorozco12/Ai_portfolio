@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import List, Optional, Sequence
 
 from .calculations import WccaResult
+from .summary import pass_fail_status, result_margin_pct, worst_results_by_case
 
 
 REVIEW_NOTE = (
@@ -41,6 +42,8 @@ def _build_report(
     condition_count: int,
 ) -> str:
     status_counts = Counter(result.review_status for result in results)
+    pass_fail_counts = Counter(pass_fail_status(result) for result in results)
+    worst_cases = worst_results_by_case(results)
     lines: List[str] = [
         "# Synthetic WCCA Preparation Report",
         "",
@@ -52,12 +55,32 @@ def _build_report(
         "",
         "Needs review",
         "",
+        "## Executive Summary",
+        "",
+        "This deterministic WCCA preparation report summarizes synthetic automotive lighting and LED-driver stress calculations. It is a pre-review engineering analysis aid and does not approve any engineering decision.",
+        "",
+        f"- Synthetic cases analyzed: {case_count}",
+        f"- Operating conditions analyzed: {condition_count}",
+        f"- Case-condition calculation rows: {len(results)}",
+        f"- Pass rows: {pass_fail_counts.get('Pass', 0)}",
+        f"- Review rows: {pass_fail_counts.get('Review', 0)}",
+        f"- Fail rows: {pass_fail_counts.get('Fail', 0)}",
+        "",
         "## Input Summary",
         "",
         f"- Synthetic WCCA cases loaded: {case_count}",
         f"- Synthetic operating conditions loaded: {condition_count}",
         f"- Calculation rows generated: {len(results)}",
         f"- Missing-data warnings generated: {len(warnings)}",
+        "",
+        "## Assumptions",
+        "",
+        "- All input data is synthetic or sanitized.",
+        "- Status thresholds are deterministic preparation thresholds, not final design-approval thresholds.",
+        "- Current tolerance and sense-resistor tolerance are applied as additive high-current contributors.",
+        "- VF tolerance is applied to the high-voltage LED-string corner.",
+        "- Switching-driver losses use low-corner efficiency.",
+        "- Linear-channel thermal loss uses positive voltage headroom only.",
         "",
         "## Deterministic Derating Policy",
         "",
@@ -75,6 +98,47 @@ def _build_report(
             lines.append(f"- {status}: {count}")
     else:
         lines.append("- No calculation rows generated.")
+
+    lines.extend(
+        [
+            "",
+            "## Worst-Case Conditions",
+            "",
+            "| Case | Worst Condition | Max Ratio | Margin pct | Pass/Fail Status | Review Status |",
+            "|---|---|---:|---:|---|---|",
+        ]
+    )
+    for result in worst_cases:
+        lines.append(
+            "| "
+            f"{result.case_id} | "
+            f"{result.condition_id} | "
+            f"{_fmt_optional(result.max_ratio)} | "
+            f"{_fmt_optional(result_margin_pct(result))} | "
+            f"{pass_fail_status(result)} | "
+            f"{result.review_status} |"
+        )
+
+    lines.extend(
+        [
+            "",
+            "## Calculated Margins",
+            "",
+            "Margins are calculated as `(1 - max stress ratio) * 100`. Negative margin means at least one synthetic preparation limit is exceeded.",
+            "",
+            "| Case | Condition | Margin pct | Max Ratio | Status |",
+            "|---|---|---:|---:|---|",
+        ]
+    )
+    for result in results:
+        lines.append(
+            "| "
+            f"{result.case_id} | "
+            f"{result.condition_id} | "
+            f"{_fmt_optional(result_margin_pct(result))} | "
+            f"{_fmt_optional(result.max_ratio)} | "
+            f"{pass_fail_status(result)} |"
+        )
 
     lines.extend(
         [
@@ -123,11 +187,26 @@ def _build_report(
             "- Confirm all data remains synthetic before public use.",
             "- Do not use this output as approval for any engineering decision.",
             "",
+            "## Review Notes Placeholder",
+            "",
+            "- Reviewer notes: _pending qualified engineering review_",
+            "- Open questions: _pending qualified engineering review_",
+            "- Required corrections: _pending qualified engineering review_",
+            "",
+            "## Engineer Signoff Placeholder",
+            "",
+            "| Field | Entry |",
+            "|---|---|",
+            "| Reviewer name |  |",
+            "| Review date |  |",
+            "| Review status | Needs review |",
+            "| Final engineering conclusion | Not approved by this tool |",
+            "",
             "## Proof Gaps",
             "",
-            "- No screenshots are included yet.",
-            "- No plots are included yet.",
-            "- No equation-review checklist is included yet.",
+            "- Screenshots are mock captures until real screenshots are captured.",
+            "- Plot gallery requires qualified review before publication.",
+            "- Equation-review checklist is not completed.",
             "- No reviewed signoff record is included yet.",
             "",
             "## Safe to Publish Status",
