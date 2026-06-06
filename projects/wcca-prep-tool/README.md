@@ -1,6 +1,6 @@
 # AI-Assisted WCCA Prep Tool
 
-[SYNTHETIC -- FOR DEMONSTRATION ONLY]
+[SYNTHETIC — FOR DEMONSTRATION ONLY]
 
 > Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
 
@@ -99,6 +99,14 @@ Jose defines the engineering workflow intent, WCCA preparation boundary, review 
 - Complete the reviewer checklist before representing the output as reviewed.
 - Confirm all public examples remain synthetic or sanitized.
 - Do not use the tool output as engineering approval.
+
+## Jose Review Pass
+
+- Formulas: complete [docs/equation_review_checklist.md](docs/equation_review_checklist.md) for current, voltage, power, thermal, margin, and status-threshold calculations.
+- Assumptions: review missing-data warnings, tolerance defaults, efficiency assumptions, derating thresholds, and operating-condition corners.
+- Synthetic data: confirm [data/synthetic_wcca_cases.csv](data/synthetic_wcca_cases.csv) and [data/operating_conditions.csv](data/operating_conditions.csv) contain only synthetic demo values.
+- Screenshots: inspect [captures](captures) and [outputs/plots](outputs/plots); keep mock captures labeled until real screenshots are accepted.
+- Publication wording: confirm report, warning output, summary CSV, captures, and plots remain draft decision-support artifacts with `Needs review` status.
 
 ## Screenshot Placeholders
 

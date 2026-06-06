@@ -1,0 +1,140 @@
+{
+  "assumptions": [
+    "Synthetic demo points approximate common LED datasheet curve shapes only.",
+    "Data is reference-only and is not a manufacturer guarantee.",
+    "Qualified engineer review is required before WCCA, simulation, thermal derating, luminous-flux prediction, feasibility screening, or design-review use.",
+    "Flux is normalized to 100 percent at the synthetic 700 mA point.",
+    "Droop and thermal interactions are simplified for deterministic demo data."
+  ],
+  "axis_calibration": {
+    "x_axis": {
+      "label": "Forward Current",
+      "pixel_high": 560.0,
+      "pixel_low": 80.0,
+      "scale": "linear",
+      "unit": "mA",
+      "value_high": 1500.0,
+      "value_low": 0.0
+    },
+    "y_axis": {
+      "label": "Relative Luminous Flux",
+      "pixel_high": 60.0,
+      "pixel_low": 420.0,
+      "scale": "linear",
+      "unit": "%",
+      "value_high": 180.0,
+      "value_low": 0.0
+    }
+  },
+  "curves": [
+    {
+      "assumptions": [
+        "Synthetic demo points approximate common LED datasheet curve shapes only.",
+        "Data is reference-only and is not a manufacturer guarantee.",
+        "Qualified engineer review is required before WCCA, simulation, thermal derating, luminous-flux prediction, feasibility screening, or design-review use.",
+        "Flux is normalized to 100 percent at the synthetic 700 mA point.",
+        "Droop and thermal interactions are simplified for deterministic demo data."
+      ],
+      "curve_id": "curve_forward_current_vs_relative_luminous_flux",
+      "curve_name": "Forward Current vs Relative Luminous Flux",
+      "engineering_notes": "Use this project to demonstrate optical-output lookup preparation without implying reviewed device performance.",
+      "extraction_method": "synthetic_manual_curve_points",
+      "fit_model": "shape_preserving_interpolation_ready",
+      "points": [
+        {
+          "notes": "Synthetic off-current point.",
+          "point_id": "P01",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 80.0,
+          "source_pixel_y": 420.0,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "notes": "Synthetic low-output point.",
+          "point_id": "P02",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 112.0,
+          "source_pixel_y": 386.0,
+          "x": 100.0,
+          "y": 17.0
+        },
+        {
+          "notes": "Synthetic partial-drive point.",
+          "point_id": "P03",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 192.0,
+          "source_pixel_y": 316.0,
+          "x": 350.0,
+          "y": 52.0
+        },
+        {
+          "notes": "Synthetic normalization point.",
+          "point_id": "P04",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 304.0,
+          "source_pixel_y": 220.0,
+          "x": 700.0,
+          "y": 100.0
+        },
+        {
+          "notes": "Synthetic high-output point.",
+          "point_id": "P05",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 400.0,
+          "source_pixel_y": 148.0,
+          "x": 1000.0,
+          "y": 136.0
+        },
+        {
+          "notes": "Synthetic upper-current point.",
+          "point_id": "P06",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 560.0,
+          "source_pixel_y": 84.0,
+          "x": 1500.0,
+          "y": 168.0
+        }
+      ],
+      "review_status": "pending_engineering_review",
+      "reviewer_notes": "Synthetic demo points require overlay and engineering review.",
+      "x_axis_label": "Forward Current",
+      "x_axis_unit": "mA",
+      "y_axis_label": "Relative Luminous Flux",
+      "y_axis_unit": "%"
+    }
+  ],
+  "human_review_required": "Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.",
+  "project_metadata": {
+    "created_at_utc": "2026-06-04T00:00:00Z",
+    "created_by": "Jose Orozco",
+    "description": "Synthetic seed project for luminous-flux response versus drive current.",
+    "intended_use": "current_flux_lookup_seed",
+    "led_identifier": "SYN-LED-IFFLUX-001",
+    "project_id": "synthetic_forward_current_vs_relative_luminous_flux",
+    "project_name": "Synthetic Forward Current vs Relative Luminous Flux Demo",
+    "publication_classification": "Safe to publish"
+  },
+  "publication_classification": "Safe to publish",
+  "review_status": "pending_engineering_review",
+  "reviewer_notes": "Safe to publish as synthetic demo data; not reviewed for engineering use.",
+  "schema_version": "1.0",
+  "source_metadata": {
+    "manufacturer": "Synthetic LED Supplier",
+    "notes": "Synthetic plot source created for public-safe demonstration.",
+    "plot_region_px": {
+      "height": 410.0,
+      "left": 60.0,
+      "top": 40.0,
+      "width": 540.0
+    },
+    "source_category": "synthetic",
+    "source_id": "source_synthetic_forward_current_vs_relative_luminous_flux",
+    "source_name": "synthetic_forward_current_vs_relative_luminous_flux_synthetic_datasheet_plot",
+    "source_page": "synthetic_page_03",
+    "source_section": "synthetic_current_flux_curve",
+    "source_type": "synthetic_datasheet_style_plot",
+    "source_uri": "synthetic://led-curve-studio/synthetic_forward_current_vs_relative_luminous_flux"
+  },
+  "synthetic_label": "[SYNTHETIC \u2014 FOR DEMONSTRATION ONLY]"
+}

@@ -1,0 +1,20 @@
+# Review Checklist Preview
+
+[SYNTHETIC — FOR DEMONSTRATION ONLY]
+
+> Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
+
+Publication classification: Needs review
+
+Terminal-style mock capture generated from deterministic synthetic outputs.
+
+| Synthetic_Label | Human_Review_Note | Publication_Classification | Check_ID | Review_Area | Checklist_Item | Status | Evidence | Reviewer_Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [SYNTHETIC — FOR DEMONSTRATION ONLY] | Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval. | Needs review | SYN-CHK-001 | Traceability | Each source requirement has one trace matrix row with requirement ID, text, domain, method, evidence, and review status. | Ready for review | 12 trace rows generated from 12 requirements. | TBD - qualified engineer review required |
+| [SYNTHETIC — FOR DEMONSTRATION ONLY] | Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval. | Needs review | SYN-CHK-002 | Testability | Each requirement has a recognized verification method or a review flag. | Ready for review | 0 missing verification method findings. | TBD - qualified engineer review required |
+| [SYNTHETIC — FOR DEMONSTRATION ONLY] | Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval. | Needs review | SYN-CHK-003 | Measurable acceptance criteria | Requirements with measurable behavior have numeric limits, units, or explicit pass/fail criteria. | Needs review | 3 numeric-limit findings; 3 pass/fail findings. | TBD - qualified engineer review required |
+| [SYNTHETIC — FOR DEMONSTRATION ONLY] | Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval. | Needs review | SYN-CHK-004 | Operating voltage/temp conditions | Operating voltage, temperature, command state, or mode context is explicit where needed. | Ready for review | 0 missing operating-condition findings. | TBD - qualified engineer review required |
+| [SYNTHETIC — FOR DEMONSTRATION ONLY] | Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval. | Needs review | SYN-CHK-005 | Environmental conditions | Environmental assumptions are identified or explicitly marked as not included in the synthetic demo. | Needs review | Environmental conditions are not fully defined in the source sample and require reviewer disposition. | TBD - qualified engineer review required |
+| [SYNTHETIC — FOR DEMONSTRATION ONLY] | Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval. | Needs review | SYN-CHK-006 | Verification evidence | Suggested evidence is present for every trace matrix row. | Ready for review | Evidence suggestions generated from proposed tests and method templates. | TBD - qualified engineer review required |
+| [SYNTHETIC — FOR DEMONSTRATION ONLY] | Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval. | Needs review | SYN-CHK-007 | Open assumptions | Assumptions are separated from verified facts and linked back to requirement IDs. | Needs review | 18 linked assumptions require review. | TBD - qualified engineer review required |
+| [SYNTHETIC — FOR DEMONSTRATION ONLY] | Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval. | Needs review | SYN-CHK-008 | Human review signoff | A qualified engineer reviews every output before use or publication. | Needs review | Reviewer name, date, disposition, and comments remain placeholders. | TBD - qualified engineer review required |

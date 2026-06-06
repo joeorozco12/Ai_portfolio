@@ -1,3 +1,4 @@
+import csv
 import sys
 import tempfile
 import unittest
@@ -11,6 +12,8 @@ from wcca_prep.loaders import load_operating_conditions, load_wcca_cases
 from wcca_prep.plots import write_plot_gallery
 from wcca_prep.report import write_report, write_warnings
 from wcca_prep.summary import (
+    HUMAN_REVIEW_NOTE,
+    SYNTHETIC_LABEL,
     pass_fail_status,
     result_margin_pct,
     write_summary_csv,
@@ -84,6 +87,13 @@ class ProofAssetTests(unittest.TestCase):
             self.assertGreaterEqual(len(capture_paths), 5)
             for plot_path in plot_paths:
                 self.assertEqual(plot_path.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
+
+            with summary_path.open(newline="", encoding="utf-8") as summary_file:
+                rows = list(csv.DictReader(summary_file))
+            self.assertTrue(rows)
+            self.assertEqual(rows[0]["Synthetic_Label"], SYNTHETIC_LABEL)
+            self.assertEqual(rows[0]["Human_Review_Note"], HUMAN_REVIEW_NOTE)
+            self.assertEqual(rows[0]["Publication_Classification"], "Needs review")
 
     def test_equation_checklist_exists(self):
         checklist_path = PROJECT_ROOT / "docs" / "equation_review_checklist.md"

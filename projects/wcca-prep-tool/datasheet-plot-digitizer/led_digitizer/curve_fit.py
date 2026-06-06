@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Iterable, Sequence
+from typing import Iterable, Literal, Sequence
 
 from .calibration import EngineeringPoint
+
+OutOfRangePolicy = Literal["clamp", "raise"]
 
 
 @dataclass(frozen=True)
@@ -24,6 +26,33 @@ class PchipSegment:
         return self.a + self.b * t + self.c * t * t + self.d * t * t * t
 
 
+@dataclass(frozen=True)
+class LookupDomain:
+    """Lookup domain and out-of-range behavior for a fitted curve."""
+
+    x_min: float
+    x_max: float
+    out_of_range_policy: OutOfRangePolicy = "clamp"
+
+    def __post_init__(self) -> None:
+        if self.x_min >= self.x_max:
+            raise ValueError("Lookup domain requires x_min less than x_max.")
+        _validate_out_of_range_policy(self.out_of_range_policy)
+
+    def contains(self, x_value: float) -> bool:
+        return self.x_min <= x_value <= self.x_max
+
+    def to_dict(self) -> dict[str, float | str]:
+        return {
+            "x_min": self.x_min,
+            "x_max": self.x_max,
+            "out_of_range_policy": self.out_of_range_policy,
+            "out_of_range_behavior": describe_out_of_range_policy(
+                self.out_of_range_policy
+            ),
+        }
+
+
 def sort_unique_points(points: Iterable[EngineeringPoint]) -> list[EngineeringPoint]:
     """Sort points by x and reject duplicate x-values."""
 
@@ -39,13 +68,22 @@ def sort_unique_points(points: Iterable[EngineeringPoint]) -> list[EngineeringPo
     return sorted_points
 
 
-def linear_interpolate(points: Sequence[EngineeringPoint], x_value: float) -> float:
-    """Piecewise-linear interpolation with endpoint clamping."""
+def linear_interpolate(
+    points: Sequence[EngineeringPoint],
+    x_value: float,
+    out_of_range: OutOfRangePolicy = "clamp",
+) -> float:
+    """Piecewise-linear interpolation with explicit out-of-range behavior."""
 
     sorted_points = sort_unique_points(points)
-    if x_value <= sorted_points[0].x:
+    _validate_out_of_range_policy(out_of_range)
+    if x_value < sorted_points[0].x:
+        if out_of_range == "raise":
+            _raise_out_of_range(x_value, sorted_points[0].x, sorted_points[-1].x)
         return sorted_points[0].y
-    if x_value >= sorted_points[-1].x:
+    if x_value > sorted_points[-1].x:
+        if out_of_range == "raise":
+            _raise_out_of_range(x_value, sorted_points[0].x, sorted_points[-1].x)
         return sorted_points[-1].y
 
     for left, right in zip(sorted_points, sorted_points[1:]):
@@ -54,6 +92,20 @@ def linear_interpolate(points: Sequence[EngineeringPoint], x_value: float) -> fl
             return left.y + fraction * (right.y - left.y)
 
     raise ValueError("Interpolation failed to find an interval.")
+
+
+def build_lookup_domain(
+    points: Sequence[EngineeringPoint],
+    out_of_range: OutOfRangePolicy = "clamp",
+) -> LookupDomain:
+    """Build a serializable lookup-domain descriptor for report/export metadata."""
+
+    sorted_points = sort_unique_points(points)
+    return LookupDomain(
+        x_min=sorted_points[0].x,
+        x_max=sorted_points[-1].x,
+        out_of_range_policy=out_of_range,
+    )
 
 
 def build_pchip_segments(points: Sequence[EngineeringPoint]) -> list[PchipSegment]:
@@ -114,14 +166,23 @@ def build_pchip_segments(points: Sequence[EngineeringPoint]) -> list[PchipSegmen
     return segments
 
 
-def evaluate_pchip(segments: Sequence[PchipSegment], x_value: float) -> float:
-    """Evaluate PCHIP with endpoint clamping."""
+def evaluate_pchip(
+    segments: Sequence[PchipSegment],
+    x_value: float,
+    out_of_range: OutOfRangePolicy = "clamp",
+) -> float:
+    """Evaluate PCHIP with explicit out-of-range behavior."""
 
     if not segments:
         raise ValueError("At least one PCHIP segment is required.")
-    if x_value <= segments[0].x0:
+    _validate_out_of_range_policy(out_of_range)
+    if x_value < segments[0].x0:
+        if out_of_range == "raise":
+            _raise_out_of_range(x_value, segments[0].x0, segments[-1].x1)
         return segments[0].a
-    if x_value >= segments[-1].x1:
+    if x_value > segments[-1].x1:
+        if out_of_range == "raise":
+            _raise_out_of_range(x_value, segments[0].x0, segments[-1].x1)
         return segments[-1].evaluate(segments[-1].x1)
 
     for segment in segments:
@@ -129,6 +190,15 @@ def evaluate_pchip(segments: Sequence[PchipSegment], x_value: float) -> float:
             return segment.evaluate(x_value)
 
     raise ValueError("PCHIP evaluation failed to find an interval.")
+
+
+def describe_out_of_range_policy(policy: OutOfRangePolicy) -> str:
+    """Return report-ready wording for a lookup policy."""
+
+    _validate_out_of_range_policy(policy)
+    if policy == "clamp":
+        return "Inputs below or above the digitized x-domain return endpoint y-values."
+    return "Inputs outside the digitized x-domain raise ValueError."
 
 
 def _edge_derivative(h0: float, h1: float, delta0: float, delta1: float) -> float:
@@ -140,3 +210,15 @@ def _edge_derivative(h0: float, h1: float, delta0: float, delta1: float) -> floa
     if (delta0 > 0) != (delta1 > 0) and abs(derivative) > abs(3.0 * delta0):
         return 3.0 * delta0
     return derivative
+
+
+def _raise_out_of_range(x_value: float, x_min: float, x_max: float) -> None:
+    raise ValueError(
+        f"Input x_value {x_value:.12g} is outside lookup domain "
+        f"[{x_min:.12g}, {x_max:.12g}]."
+    )
+
+
+def _validate_out_of_range_policy(policy: str) -> None:
+    if policy not in {"clamp", "raise"}:
+        raise ValueError("Out-of-range policy must be 'clamp' or 'raise'.")

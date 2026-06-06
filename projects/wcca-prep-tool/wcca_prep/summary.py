@@ -9,7 +9,16 @@ from typing import Dict, List, Optional, Sequence
 from .calculations import WccaResult
 
 
+SYNTHETIC_LABEL = "[SYNTHETIC — FOR DEMONSTRATION ONLY]"
+HUMAN_REVIEW_NOTE = (
+    "Human Review Required: AI-generated outputs are decision-support artifacts only. "
+    "A qualified engineer owns final review and approval."
+)
+
 SUMMARY_COLUMNS = [
+    "Synthetic_Label",
+    "Human_Review_Note",
+    "Publication_Classification",
     "Case_ID",
     "Condition_ID",
     "Topology",
@@ -42,6 +51,9 @@ def write_summary_csv(path: Path, results: Sequence[WccaResult]) -> None:
 
 def result_to_summary_row(result: WccaResult) -> Dict[str, str]:
     return {
+        "Synthetic_Label": SYNTHETIC_LABEL,
+        "Human_Review_Note": HUMAN_REVIEW_NOTE,
+        "Publication_Classification": "Needs review",
         "Case_ID": result.case_id,
         "Condition_ID": result.condition_id,
         "Topology": result.topology,

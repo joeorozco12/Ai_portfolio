@@ -18,15 +18,41 @@
 
 ## Current Baseline
 
-The rough-draft digitizer demo already includes:
+The current Curve Studio package includes:
 
 - Streamlit shell in `app.py`
 - Synthetic manual points in `data/synthetic_manual_points.csv`
-- Deterministic calibration and PCHIP curve-fit helpers
-- CSV, JSON, Python, MATLAB, overlay PNG, and Markdown report exports
-- Basic tests for calibration, curve fitting, and exports
+- Deterministic project model and `.ledcurve.json` save/load helpers
+- Reusable synthetic demo projects in `data/demo_projects/`
+- Reusable synthetic point tables in `data/synthetic/`
+- Deterministic calibration helpers for linear/log axes, reversed image axes, and sanity metadata
+- PCHIP curve-fit helpers with explicit out-of-range behavior
+- Curve-fit validation helpers with residual, monotonicity, review-status, and lookup-domain reporting
+- Manual extraction conversion and optional draft assisted candidate grouping
+- CSV, JSON, Python, MATLAB, overlay PNG, Markdown report, and structured export-package generation
+- Tests for project I/O, demo data, calibration, curve fitting, validation, exports, manual extraction, and draft assisted extraction
 
 This task list formalizes the project as LED Datasheet Curve Studio and sequences future work.
+
+## Task Status Snapshot
+
+Completed or implementation-ready:
+
+- Task 1 project model and save/load are implemented in the deterministic core.
+- Task 2 synthetic demo data is implemented and checked into `data/synthetic/` and `data/demo_projects/`.
+- Task 3 calibration engine is implemented for the current deterministic scope.
+- Task 4 curve-fit validation helpers are implemented for deterministic residual and monotonicity review.
+- Task 5 structured export-package helpers are implemented; `run_demo.py` regenerates `exports/demo_export_package/`.
+- Task 7 has deterministic public/synthetic import guards, manual extraction conversion, and draft assisted candidate grouping; it is not a reviewed image-recognition workflow.
+- The original export demo path writes reviewable CSV, JSON, Python, MATLAB, overlay, and Markdown artifacts under `outputs/`.
+- Task 8 documentation polish is represented by this status snapshot, the updated README/project brief, current capture placeholder, and regenerated demo output report.
+
+Remaining planned work:
+
+- Task 6 still needs browser-verified Streamlit workflow implementation beyond the current shell.
+- Full validation report output should be integrated into the Streamlit review workflow and generated review package.
+- Assisted extraction still needs optional image-processing/UI integration and real public-datasheet validation before it can be presented as reviewed workflow evidence.
+- Reviewed WCCA or lighting-feasibility adapters remain planned and must require human-reviewed status.
 
 ## Task 1 - Project Model And Save/Load
 

@@ -1,8 +1,10 @@
 # Plot Gallery Preview Mock Capture
 
-[SYNTHETIC -- FOR DEMONSTRATION ONLY]
+[SYNTHETIC — FOR DEMONSTRATION ONLY]
 
 > Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
+
+Publication classification: Needs review
 
 > Mock capture: terminal-style portfolio proof artifact, not a live screenshot.
 

@@ -6,11 +6,10 @@ from pathlib import Path
 from typing import List, Sequence
 
 from .calculations import WccaResult
-from .report import REVIEW_NOTE
+from .report import REVIEW_NOTE, SYNTHETIC_LABEL
 from .summary import pass_fail_status, result_margin_pct, worst_results_by_case
 
 
-SYNTHETIC_LABEL = "[SYNTHETIC -- FOR DEMONSTRATION ONLY]"
 MOCK_NOTE = "Mock capture: terminal-style portfolio proof artifact, not a live screenshot."
 
 
@@ -45,6 +44,8 @@ def _header(title: str) -> List[str]:
         SYNTHETIC_LABEL,
         "",
         f"> {REVIEW_NOTE}",
+        "",
+        "Publication classification: Needs review",
         "",
         f"> {MOCK_NOTE}",
         "",

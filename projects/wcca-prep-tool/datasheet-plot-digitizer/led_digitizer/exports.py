@@ -10,14 +10,18 @@ import zlib
 from pathlib import Path
 from typing import Any, Sequence
 
+from . import report as report_builder
 from .calibration import EngineeringPoint
 from .curve_fit import PchipSegment, build_pchip_segments
-
-SYNTHETIC_LABEL = "[SYNTHETIC — FOR DEMONSTRATION ONLY]"
-HUMAN_REVIEW_NOTE = (
-    "Human Review Required: AI-generated outputs are decision-support artifacts "
-    "only. A qualified engineer owns final review and approval."
+from .report import (
+    DOWNSTREAM_USE_WARNINGS,
+    HUMAN_REVIEW_NOTE,
+    SYNTHETIC_LABEL,
+    build_report_context,
+    write_markdown_report,
 )
+
+EXPORT_PACKAGE_SCHEMA_VERSION = "led_curve_export_package_1.0"
 
 
 def safe_name(value: str) -> str:
@@ -52,7 +56,7 @@ def write_points_csv(
         "engineering_note",
     ]
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         for point in sorted(points, key=lambda item: item.x):
             writer.writerow(
@@ -81,9 +85,18 @@ def write_metadata_json(path: Path, metadata: dict[str, Any]) -> None:
     payload = {
         "synthetic_label": SYNTHETIC_LABEL,
         "human_review_required": HUMAN_REVIEW_NOTE,
+        "source_metadata": report_builder.build_source_metadata(metadata),
+        "calibration_metadata": report_builder.build_calibration_metadata(metadata),
+        "assumptions": report_builder.build_assumptions(metadata),
+        "method": report_builder.build_method_metadata(metadata),
+        "review_metadata": report_builder.build_review_status(metadata),
+        "downstream_use_warnings": list(DOWNSTREAM_USE_WARNINGS),
         **metadata,
     }
-    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    path.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
 
 
 def write_python_lookup(
@@ -100,16 +113,23 @@ def write_python_lookup(
     ]
     metadata_json = json.dumps(metadata, indent=4, sort_keys=True)
     segments_json = json.dumps(segment_rows, indent=4)
+    warnings_json = json.dumps(list(DOWNSTREAM_USE_WARNINGS), indent=4)
     content = f'''"""Synthetic LED curve lookup generated from digitized plot points."""
 
 SYNTHETIC_LABEL = "{SYNTHETIC_LABEL}"
 HUMAN_REVIEW_REQUIRED = "{HUMAN_REVIEW_NOTE}"
 CURVE_METADATA = {metadata_json}
+DOWNSTREAM_USE_WARNINGS = {warnings_json}
 PCHIP_SEGMENTS = {segments_json}
 
 
 def {function_name}(x_value):
-    """Return interpolated y-value using reviewed PCHIP coefficients."""
+    """Return interpolated y-value using draft PCHIP coefficients.
+
+    Endpoint clamping is used outside the digitized range. This lookup is a
+    review artifact and must not be used for engineering decisions until a
+    qualified engineer accepts the export package.
+    """
 
     segments = PCHIP_SEGMENTS
     if x_value <= segments[0][0]:
@@ -150,6 +170,8 @@ def write_matlab_lookup(
 % Curve: {metadata["curve_name"]}
 % Source: {metadata["datasheet_source"]}, page {metadata["source_page"]}
 % Note: {metadata["engineering_note"]}
+% Warning: Do not use for WCCA, feasibility, thermal, optical, design-review, or design-decision workflows until qualified engineering review is complete.
+% Warning: This lookup clamps outside the digitized x-range and is not an approved extrapolation model.
 
 segments = [
 {rows}
@@ -219,135 +241,88 @@ def write_overlay_png(
     _write_png(path, pixels)
 
 
-def write_markdown_report(
-    path: Path,
+def write_export_package(
+    output_dir: Path,
     metadata: dict[str, Any],
     points: Sequence[EngineeringPoint],
-    overlay_path: str,
-    csv_path: str,
-    json_path: str,
-    python_path: str,
-    matlab_path: str,
-) -> None:
+) -> dict[str, Path]:
+    """Write a structured export package for reviewable downstream use."""
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    curve_slug = safe_name(metadata["curve_name"])
+    function_name = f"lookup_{curve_slug}"
+    artifact_rel_paths = {
+        "csv_points": "data/digitized_curve_points.csv",
+        "json_metadata": "metadata/export_manifest.json",
+        "source_metadata_json": "metadata/source_metadata.json",
+        "calibration_metadata_json": "metadata/calibration_metadata.json",
+        "python_lookup": f"lookups/python/{function_name}.py",
+        "matlab_lookup": f"lookups/matlab/{function_name}.m",
+        "overlay_png": f"review/overlay_{curve_slug}.png",
+        "markdown_report": "review/extraction_report.md",
+    }
+    paths = {
+        name: output_dir / relative_path
+        for name, relative_path in artifact_rel_paths.items()
+    }
+
+    write_points_csv(paths["csv_points"], metadata, points)
+    write_python_lookup(paths["python_lookup"], function_name, metadata, points)
+    write_matlab_lookup(paths["matlab_lookup"], function_name, metadata, points)
+    write_overlay_png(paths["overlay_png"], points)
+
+    context = build_report_context(metadata, points, artifact_rel_paths)
+    manifest = {
+        "package_name": output_dir.name,
+        "package_status": "draft_requires_qualified_engineer_review",
+        **context,
+    }
+    _write_json(paths["json_metadata"], manifest)
+    _write_json(
+        paths["source_metadata_json"],
+        {
+            "synthetic_label": SYNTHETIC_LABEL,
+            "human_review_required": HUMAN_REVIEW_NOTE,
+            "publication_classification": context["publication_classification"],
+            "source_metadata": context["source_metadata"],
+            "downstream_use_warnings": context["downstream_use_warnings"],
+        },
+    )
+    _write_json(
+        paths["calibration_metadata_json"],
+        {
+            "synthetic_label": SYNTHETIC_LABEL,
+            "human_review_required": HUMAN_REVIEW_NOTE,
+            "publication_classification": context["publication_classification"],
+            "calibration_metadata": context["calibration_metadata"],
+            "assumptions": context["assumptions"],
+            "validation_status": context["validation_status"],
+            "review_status": context["review_status"],
+            "downstream_use_warnings": context["downstream_use_warnings"],
+        },
+    )
+    write_markdown_report(
+        paths["markdown_report"],
+        metadata,
+        points,
+        overlay_path=artifact_rel_paths["overlay_png"],
+        csv_path=artifact_rel_paths["csv_points"],
+        json_path=artifact_rel_paths["json_metadata"],
+        python_path=artifact_rel_paths["python_lookup"],
+        matlab_path=artifact_rel_paths["matlab_lookup"],
+        source_metadata_path=artifact_rel_paths["source_metadata_json"],
+        calibration_metadata_path=artifact_rel_paths["calibration_metadata_json"],
+    )
+
+    return paths
+
+
+def _write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    sorted_points = sorted(points, key=lambda point: point.x)
-    first = sorted_points[0]
-    last = sorted_points[-1]
-    content = f"""# LED Datasheet Plot Digitizer & Curve-Fit Builder
-
-{SYNTHETIC_LABEL}
-
-> {HUMAN_REVIEW_NOTE}
-
-## Problem
-
-LED datasheet-style plots often contain useful voltage, current, temperature, and flux behavior in image form. Engineers need structured, traceable curve data for WCCA preparation, feasibility screening, simulation, and design-review discussion.
-
-## Engineering Context
-
-This artifact demonstrates a synthetic automotive-lighting data-prep workflow. It uses a synthetic LED identifier and synthetic plot points only. It does not include proprietary datasheets, customer programs, supplier records, internal requirements, schematics, BOM data, harness data, cost data, or validation results.
-
-## Workflow
-
-1. Load a public or synthetic datasheet plot image.
-2. Select the plot region.
-3. Calibrate the x and y axes from known reference points.
-4. Digitize curve points by manual picking first.
-5. Fit a shape-preserving interpolation model.
-6. Export reviewed CSV, JSON, Python, MATLAB, overlay, and report artifacts.
-
-## Inputs
-
-- Curve name: `{metadata["curve_name"]}`
-- Source: `{metadata["datasheet_source"]}`
-- Source page: `{metadata["source_page"]}`
-- X axis: `{metadata["x_axis"]["label"]}` `{metadata["x_axis"]["unit"]}`
-- Y axis: `{metadata["y_axis"]["label"]}` `{metadata["y_axis"]["unit"]}`
-- Digitization method: `{metadata["digitization_method"]}`
-- Digitized points: `{len(sorted_points)}`
-
-## Outputs
-
-- CSV points: `{csv_path}`
-- JSON metadata: `{json_path}`
-- Python lookup function: `{python_path}`
-- MATLAB lookup function: `{matlab_path}`
-- Overlay verification image: `{overlay_path}`
-- Markdown extraction report: this file
-
-## Screenshots Or Screenshot Placeholders
-
-- Overlay verification image: `{overlay_path}`
-- Streamlit workflow placeholder: `captures/streamlit_workflow_mock.md`
-
-## Sanitized Sample Data
-
-The sample extraction uses `{metadata["part_number"]}` from `{metadata["manufacturer"]}`. These are synthetic demonstration labels, not real device identifiers. The extracted x range is `{first.x:.3f}` to `{last.x:.3f}` {metadata["x_axis"]["unit"]}; the extracted y range is `{first.y:.1f}` to `{last.y:.1f}` {metadata["y_axis"]["unit"]}.
-
-## Human Review Controls
-
-- Manual axis calibration is required before export.
-- Curve points remain `draft_extraction` until a qualified reviewer checks them.
-- Overlay review is required before use in WCCA or feasibility inputs.
-- Source page and digitization method are exported with every row.
-- The reviewer must confirm that plot data is reference-only and not a guaranteed device limit.
-- The tool does not approve LED design values.
-
-## Codex Contribution
-
-Codex scaffolded the Streamlit app shell, deterministic calibration math, PCHIP curve-fit builder, export modules, synthetic sample data, overlay generator, and unit tests.
-
-## Jose Contribution
-
-Jose defines the LED engineering data-prep use case, WCCA and feasibility workflow boundary, required review controls, acceptable public/synthetic source boundary, and final engineering judgment.
-
-## AI Fundamentals Demonstrated
-
-- Structured data extraction workflow
-- Deterministic transformation from pixels to engineering units
-- Curve-fit generation from reviewed samples
-- Metadata-rich export generation
-- Testable human-in-the-loop automation
-
-## Engineering Skills Demonstrated
-
-- LED forward-voltage and current curve interpretation
-- Datasheet plot traceability
-- WCCA input preparation
-- Simulation lookup-table preparation
-- Engineering review governance
-
-## Risks And Mitigations
-
-- Risk: Digitized plot points could be mistaken for guaranteed limits. Mitigation: every export states that plot data is reference-only and requires engineering review.
-- Risk: Calibration errors could distort the curve. Mitigation: manual axis calibration, overlay review, source-pixel export, and reviewer status are required.
-- Risk: A curve fit could oversmooth engineering behavior. Mitigation: the MVP uses shape-preserving PCHIP coefficients and exports raw points alongside the fitted model.
-- Risk: Public output could reveal controlled data. Mitigation: included samples are synthetic and public use requires sanitized/public source review.
-
-## Next Improvements
-
-- Add browser-based image click capture for calibration and curve picking.
-- Add optional OpenCV-assisted extraction after manual picks are accepted.
-- Add log-axis support to the Streamlit workflow.
-- Add multi-curve extraction from a single plot image.
-- Add a reviewed adapter that feeds WCCA and Project 5 feasibility inputs only after approval.
-
-## Proof Gaps
-
-- The current generated sample is synthetic and does not prove extraction quality on a real public datasheet.
-- Streamlit image click/crop interaction still needs a browser component or custom canvas package.
-- Optional PDF rendering and OpenCV extraction require installing runtime dependencies from `requirements.txt`.
-- A qualified engineering review signoff has not been completed.
-
-## Publication Classification
-
-Needs review
-
-## Safe To Publish Status
-
-Needs review. The code and sample data are synthetic and sanitized, but the tool behavior, screenshots, and public framing still require qualified engineering review before publication.
-"""
-    path.write_text(content, encoding="utf-8")
+    path.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
 
 
 def _write_png(path: Path, pixels: list[list[tuple[int, int, int]]]) -> None:

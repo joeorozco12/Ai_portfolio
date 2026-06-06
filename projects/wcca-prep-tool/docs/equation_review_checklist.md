@@ -1,6 +1,6 @@
 # WCCA Equation Review Checklist
 
-[SYNTHETIC -- FOR DEMONSTRATION ONLY]
+[SYNTHETIC — FOR DEMONSTRATION ONLY]
 
 > Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
 

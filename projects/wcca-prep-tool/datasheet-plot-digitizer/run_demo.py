@@ -6,6 +6,7 @@ from pathlib import Path
 
 from led_digitizer.exports import (
     safe_name,
+    write_export_package,
     write_markdown_report,
     write_matlab_lookup,
     write_metadata_json,
@@ -19,6 +20,7 @@ from led_digitizer.sample_project import SAMPLE_METADATA, load_sample_points
 PROJECT_ROOT = Path(__file__).resolve().parent
 DATA_PATH = PROJECT_ROOT / "data" / "synthetic_manual_points.csv"
 OUTPUT_ROOT = PROJECT_ROOT / "outputs"
+EXPORT_PACKAGE_ROOT = PROJECT_ROOT / "exports" / "demo_export_package"
 
 
 def main() -> None:
@@ -48,6 +50,7 @@ def main() -> None:
         python_path=f"outputs/python/{function_name}.py",
         matlab_path=f"outputs/matlab/{function_name}.m",
     )
+    package_paths = write_export_package(EXPORT_PACKAGE_ROOT, SAMPLE_METADATA, points)
 
     print(f"Generated {len(points)} digitized points")
     print(f"Wrote {csv_path.relative_to(PROJECT_ROOT)}")
@@ -56,6 +59,8 @@ def main() -> None:
     print(f"Wrote {python_path.relative_to(PROJECT_ROOT)}")
     print(f"Wrote {matlab_path.relative_to(PROJECT_ROOT)}")
     print(f"Wrote {report_path.relative_to(PROJECT_ROOT)}")
+    for path in package_paths.values():
+        print(f"Wrote {path.relative_to(PROJECT_ROOT)}")
 
 
 if __name__ == "__main__":

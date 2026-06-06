@@ -11,6 +11,7 @@ from led_digitizer.exports import (
     HUMAN_REVIEW_NOTE,
     SYNTHETIC_LABEL,
     safe_name,
+    write_export_package,
     write_markdown_report,
     write_metadata_json,
     write_overlay_png,
@@ -95,6 +96,50 @@ class ExportTests(unittest.TestCase):
             self.assertIn(HUMAN_REVIEW_NOTE, text)
             self.assertIn("## Proof Gaps", text)
             self.assertIn("## Safe To Publish Status", text)
+
+    def test_export_package_contains_reviewable_artifacts_and_warnings(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            package_root = Path(temp_dir) / "demo_export_package"
+
+            paths = write_export_package(package_root, SAMPLE_METADATA, self.points)
+
+            expected_keys = {
+                "csv_points",
+                "json_metadata",
+                "source_metadata_json",
+                "calibration_metadata_json",
+                "python_lookup",
+                "matlab_lookup",
+                "overlay_png",
+                "markdown_report",
+            }
+            self.assertEqual(set(paths), expected_keys)
+            for path in paths.values():
+                self.assertTrue(path.exists(), path)
+
+            manifest = json.loads(paths["json_metadata"].read_text(encoding="utf-8"))
+            self.assertEqual(manifest["synthetic_label"], SYNTHETIC_LABEL)
+            self.assertEqual(manifest["human_review_required"], HUMAN_REVIEW_NOTE)
+            self.assertIn("source_metadata", manifest)
+            self.assertIn("calibration_metadata", manifest)
+            self.assertIn("assumptions", manifest)
+            self.assertIn("method", manifest)
+            self.assertIn("fit_model", manifest)
+            self.assertEqual(
+                manifest["validation_status"]["status"],
+                "draft_validation_pending_engineer_review",
+            )
+            self.assertEqual(manifest["review_status"]["status"], "draft_extraction")
+            self.assertIn("downstream_use_warnings", manifest)
+
+            report_text = paths["markdown_report"].read_text(encoding="utf-8")
+            self.assertIn("## Downstream Use Warnings", report_text)
+            self.assertIn("qualified engineer reviews and accepts", report_text)
+
+            python_text = paths["python_lookup"].read_text(encoding="utf-8")
+            self.assertIn("DOWNSTREAM_USE_WARNINGS", python_text)
+            matlab_text = paths["matlab_lookup"].read_text(encoding="utf-8")
+            self.assertIn("Warning: Do not use for WCCA", matlab_text)
 
 
 if __name__ == "__main__":

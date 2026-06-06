@@ -1,6 +1,75 @@
 {
-  "synthetic_label": "[SYNTHETIC \u2014 FOR DEMONSTRATION ONLY]",
+  "synthetic_label": "[SYNTHETIC — FOR DEMONSTRATION ONLY]",
   "human_review_required": "Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.",
+  "source_metadata": {
+    "source_category": "synthetic",
+    "source_type": "datasheet_plot_image",
+    "source_name": "synthetic_datasheet_style_plot",
+    "source_page": "synthetic_page_20",
+    "source_section": "synthetic_forward_current_characteristics",
+    "source_uri": "",
+    "manufacturer": "Synthetic LED Supplier",
+    "crop_region_px": {
+      "left": 60,
+      "top": 40,
+      "width": 540,
+      "height": 410
+    },
+    "source_note": "Synthetic or public source only. No proprietary source details are included in this package."
+  },
+  "calibration_metadata": {
+    "x_axis": {
+      "label": "Forward Voltage",
+      "unit": "V",
+      "scale": "linear",
+      "pixel_low": 80.0,
+      "pixel_high": 560.0,
+      "value_low": 2.5,
+      "value_high": 4.5
+    },
+    "y_axis": {
+      "label": "Forward Current",
+      "unit": "mA",
+      "scale": "linear",
+      "pixel_low": 420.0,
+      "pixel_high": 60.0,
+      "value_low": 0.0,
+      "value_high": 4000.0
+    },
+    "calibration_review_status": "draft",
+    "calibration_note": "Calibration values must be checked against the source plot before the exported curve is used downstream."
+  },
+  "assumptions": [
+    "Source plot is synthetic or public and cleared for demonstration use.",
+    "Manual axis calibration points were entered by the operator.",
+    "Manual curve picks are treated as draft until overlay review is complete.",
+    "Digitized plot data is reference-only and not a guaranteed device limit."
+  ],
+  "method": {
+    "digitization_method": "manual_calibration_plus_manual_curve_pick",
+    "operator_workflow": [
+      "select source plot",
+      "calibrate x and y axes",
+      "pick curve points manually",
+      "generate overlay for review",
+      "export raw points, metadata, lookup functions, and report"
+    ],
+    "package_generator": "LED Datasheet Curve Studio deterministic exporter",
+    "ai_boundary": "AI-assisted output is decision support only; the exporter does not approve engineering data."
+  },
+  "review_metadata": {
+    "status": "draft_extraction",
+    "reviewer": "not_assigned",
+    "reviewed_at_utc": "not_reviewed",
+    "reviewer_notes": "",
+    "requires_qualified_engineer_review": true
+  },
+  "downstream_use_warnings": [
+    "Do not use this export for WCCA, feasibility simulation, thermal derating, luminous-flux prediction, design review, or design decisions until a qualified engineer reviews and accepts it.",
+    "Lookup functions clamp outside the digitized x-range; they are not validated extrapolation models.",
+    "Curve-fit coefficients must be checked against the raw points and overlay image before downstream use.",
+    "Synthetic demo identifiers are not real device, supplier, customer, program, schematic, BOM, harness, cost, validation, ticket, repository, or internal-document references."
+  ],
   "part_number": "SYN-LED-170",
   "manufacturer": "Synthetic LED Supplier",
   "datasheet_source": "synthetic_datasheet_style_plot",

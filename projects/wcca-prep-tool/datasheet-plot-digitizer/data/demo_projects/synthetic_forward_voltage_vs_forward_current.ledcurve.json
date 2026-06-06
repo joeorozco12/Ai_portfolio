@@ -1,0 +1,140 @@
+{
+  "assumptions": [
+    "Synthetic demo points approximate common LED datasheet curve shapes only.",
+    "Data is reference-only and is not a manufacturer guarantee.",
+    "Qualified engineer review is required before WCCA, simulation, thermal derating, luminous-flux prediction, feasibility screening, or design-review use.",
+    "Curve shape is monotonic and intended for lookup workflow demonstration.",
+    "Low-current knee is simplified for deterministic demo data."
+  ],
+  "axis_calibration": {
+    "x_axis": {
+      "label": "Forward Current",
+      "pixel_high": 560.0,
+      "pixel_low": 80.0,
+      "scale": "linear",
+      "unit": "mA",
+      "value_high": 1500.0,
+      "value_low": 0.0
+    },
+    "y_axis": {
+      "label": "Forward Voltage",
+      "pixel_high": 60.0,
+      "pixel_low": 420.0,
+      "scale": "linear",
+      "unit": "V",
+      "value_high": 3.9,
+      "value_low": 2.4
+    }
+  },
+  "curves": [
+    {
+      "assumptions": [
+        "Synthetic demo points approximate common LED datasheet curve shapes only.",
+        "Data is reference-only and is not a manufacturer guarantee.",
+        "Qualified engineer review is required before WCCA, simulation, thermal derating, luminous-flux prediction, feasibility screening, or design-review use.",
+        "Curve shape is monotonic and intended for lookup workflow demonstration.",
+        "Low-current knee is simplified for deterministic demo data."
+      ],
+      "curve_id": "curve_forward_voltage_vs_forward_current",
+      "curve_name": "Forward Voltage vs Forward Current",
+      "engineering_notes": "Use this project to demonstrate preserving source pixels, axis calibration, and draft voltage lookup points.",
+      "extraction_method": "synthetic_manual_curve_points",
+      "fit_model": "shape_preserving_interpolation_ready",
+      "points": [
+        {
+          "notes": "Synthetic near-off reference point.",
+          "point_id": "P01",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 80.0,
+          "source_pixel_y": 384.0,
+          "x": 0.0,
+          "y": 2.55
+        },
+        {
+          "notes": "Synthetic low-current operating point.",
+          "point_id": "P02",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 112.0,
+          "source_pixel_y": 328.8,
+          "x": 100.0,
+          "y": 2.78
+        },
+        {
+          "notes": "Synthetic nominal-lighting point.",
+          "point_id": "P03",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 192.0,
+          "source_pixel_y": 271.2,
+          "x": 350.0,
+          "y": 3.02
+        },
+        {
+          "notes": "Synthetic mid-drive point.",
+          "point_id": "P04",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 304.0,
+          "source_pixel_y": 216.0,
+          "x": 700.0,
+          "y": 3.25
+        },
+        {
+          "notes": "Synthetic high-drive review point.",
+          "point_id": "P05",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 400.0,
+          "source_pixel_y": 172.8,
+          "x": 1000.0,
+          "y": 3.43
+        },
+        {
+          "notes": "Synthetic upper demo range point.",
+          "point_id": "P06",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 560.0,
+          "source_pixel_y": 103.2,
+          "x": 1500.0,
+          "y": 3.72
+        }
+      ],
+      "review_status": "pending_engineering_review",
+      "reviewer_notes": "Synthetic demo points require overlay and engineering review.",
+      "x_axis_label": "Forward Current",
+      "x_axis_unit": "mA",
+      "y_axis_label": "Forward Voltage",
+      "y_axis_unit": "V"
+    }
+  ],
+  "human_review_required": "Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.",
+  "project_metadata": {
+    "created_at_utc": "2026-06-04T00:00:00Z",
+    "created_by": "Jose Orozco",
+    "description": "Synthetic seed project for voltage lookup versus drive current.",
+    "intended_use": "forward_voltage_lookup_seed",
+    "led_identifier": "SYN-LED-FVIF-001",
+    "project_id": "synthetic_forward_voltage_vs_forward_current",
+    "project_name": "Synthetic Forward Voltage vs Forward Current Demo",
+    "publication_classification": "Safe to publish"
+  },
+  "publication_classification": "Safe to publish",
+  "review_status": "pending_engineering_review",
+  "reviewer_notes": "Safe to publish as synthetic demo data; not reviewed for engineering use.",
+  "schema_version": "1.0",
+  "source_metadata": {
+    "manufacturer": "Synthetic LED Supplier",
+    "notes": "Synthetic plot source created for public-safe demonstration.",
+    "plot_region_px": {
+      "height": 410.0,
+      "left": 60.0,
+      "top": 40.0,
+      "width": 540.0
+    },
+    "source_category": "synthetic",
+    "source_id": "source_synthetic_forward_voltage_vs_forward_current",
+    "source_name": "synthetic_forward_voltage_vs_forward_current_synthetic_datasheet_plot",
+    "source_page": "synthetic_page_01",
+    "source_section": "synthetic_forward_voltage_current_curve",
+    "source_type": "synthetic_datasheet_style_plot",
+    "source_uri": "synthetic://led-curve-studio/synthetic_forward_voltage_vs_forward_current"
+  },
+  "synthetic_label": "[SYNTHETIC \u2014 FOR DEMONSTRATION ONLY]"
+}

@@ -1,0 +1,3 @@
+Requirement_ID,Source_Type,Requirement_Text,Subsystem,Requirement_Type,Verification_Method,Risk_Level,Assumptions,Ambiguity_Flag,Proposed_Test,Human_Review_Status
+SYN-REQ-T001,Synthetic notes,Low beam should provide adequate illumination as needed.,Low Beam,Functional,,Medium,,Yes,,Needs review
+SYN-REQ-T002,Synthetic notes,Thermal behavior TBD where appropriate.,Thermal,Analysis,Analysis,Medium,,Yes,Review thermal placeholder language,Needs review

@@ -14,6 +14,7 @@ REVIEW_NOTE = (
     "Human Review Required: AI-generated outputs are decision-support artifacts only. "
     "A qualified engineer owns final review and approval."
 )
+SYNTHETIC_LABEL = "[SYNTHETIC — FOR DEMONSTRATION ONLY]"
 
 
 def write_report(
@@ -47,7 +48,7 @@ def _build_report(
     lines: List[str] = [
         "# Synthetic WCCA Preparation Report",
         "",
-        "[SYNTHETIC -- FOR DEMONSTRATION ONLY]",
+        SYNTHETIC_LABEL,
         "",
         f"> {REVIEW_NOTE}",
         "",
@@ -222,7 +223,7 @@ def _build_warnings_report(warnings: Sequence[str]) -> str:
     lines = [
         "# Synthetic WCCA Missing-Data Warnings",
         "",
-        "[SYNTHETIC -- FOR DEMONSTRATION ONLY]",
+        SYNTHETIC_LABEL,
         "",
         f"> {REVIEW_NOTE}",
         "",

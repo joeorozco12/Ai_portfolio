@@ -1,0 +1,27 @@
+{
+  "synthetic_label": "[SYNTHETIC — FOR DEMONSTRATION ONLY]",
+  "human_review_required": "Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.",
+  "publication_classification": "Needs review",
+  "source_metadata": {
+    "source_category": "synthetic",
+    "source_type": "datasheet_plot_image",
+    "source_name": "synthetic_datasheet_style_plot",
+    "source_page": "synthetic_page_20",
+    "source_section": "synthetic_forward_current_characteristics",
+    "source_uri": "",
+    "manufacturer": "Synthetic LED Supplier",
+    "crop_region_px": {
+      "left": 60,
+      "top": 40,
+      "width": 540,
+      "height": 410
+    },
+    "source_note": "Synthetic or public source only. No proprietary source details are included in this package."
+  },
+  "downstream_use_warnings": [
+    "Do not use this export for WCCA, feasibility simulation, thermal derating, luminous-flux prediction, design review, or design decisions until a qualified engineer reviews and accepts it.",
+    "Lookup functions clamp outside the digitized x-range; they are not validated extrapolation models.",
+    "Curve-fit coefficients must be checked against the raw points and overlay image before downstream use.",
+    "Synthetic demo identifiers are not real device, supplier, customer, program, schematic, BOM, harness, cost, validation, ticket, repository, or internal-document references."
+  ]
+}

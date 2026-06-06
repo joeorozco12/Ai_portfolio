@@ -1,0 +1,140 @@
+{
+  "assumptions": [
+    "Synthetic demo points approximate common LED datasheet curve shapes only.",
+    "Data is reference-only and is not a manufacturer guarantee.",
+    "Qualified engineer review is required before WCCA, simulation, thermal derating, luminous-flux prediction, feasibility screening, or design-review use.",
+    "Flat region and roll-off are simplified to show derating workflow shape.",
+    "Ambient-temperature derating is not a substitute for junction-temperature analysis."
+  ],
+  "axis_calibration": {
+    "x_axis": {
+      "label": "Ambient Temperature",
+      "pixel_high": 560.0,
+      "pixel_low": 80.0,
+      "scale": "linear",
+      "unit": "degC",
+      "value_high": 125.0,
+      "value_low": -40.0
+    },
+    "y_axis": {
+      "label": "Allowable Forward Current",
+      "pixel_high": 60.0,
+      "pixel_low": 420.0,
+      "scale": "linear",
+      "unit": "mA",
+      "value_high": 1200.0,
+      "value_low": 0.0
+    }
+  },
+  "curves": [
+    {
+      "assumptions": [
+        "Synthetic demo points approximate common LED datasheet curve shapes only.",
+        "Data is reference-only and is not a manufacturer guarantee.",
+        "Qualified engineer review is required before WCCA, simulation, thermal derating, luminous-flux prediction, feasibility screening, or design-review use.",
+        "Flat region and roll-off are simplified to show derating workflow shape.",
+        "Ambient-temperature derating is not a substitute for junction-temperature analysis."
+      ],
+      "curve_id": "curve_thermal_derating",
+      "curve_name": "Thermal Derating Style Curve",
+      "engineering_notes": "Use this project to demonstrate thermal derating data preparation with clear review status before downstream screening.",
+      "extraction_method": "synthetic_manual_curve_points",
+      "fit_model": "shape_preserving_interpolation_ready",
+      "points": [
+        {
+          "notes": "Synthetic cold-condition limit point.",
+          "point_id": "P01",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 80.0,
+          "source_pixel_y": 120.0,
+          "x": -40.0,
+          "y": 1000.0
+        },
+        {
+          "notes": "Synthetic nominal ambient point.",
+          "point_id": "P02",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 269.091,
+          "source_pixel_y": 120.0,
+          "x": 25.0,
+          "y": 1000.0
+        },
+        {
+          "notes": "Synthetic derating onset point.",
+          "point_id": "P03",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 370.909,
+          "source_pixel_y": 150.0,
+          "x": 60.0,
+          "y": 900.0
+        },
+        {
+          "notes": "Synthetic warm ambient derating point.",
+          "point_id": "P04",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 443.636,
+          "source_pixel_y": 225.0,
+          "x": 85.0,
+          "y": 650.0
+        },
+        {
+          "notes": "Synthetic high ambient derating point.",
+          "point_id": "P05",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 501.818,
+          "source_pixel_y": 315.0,
+          "x": 105.0,
+          "y": 350.0
+        },
+        {
+          "notes": "Synthetic maximum ambient cutoff point.",
+          "point_id": "P06",
+          "review_status": "synthetic_demo_pending_review",
+          "source_pixel_x": 560.0,
+          "source_pixel_y": 420.0,
+          "x": 125.0,
+          "y": 0.0
+        }
+      ],
+      "review_status": "pending_engineering_review",
+      "reviewer_notes": "Synthetic demo points require overlay and engineering review.",
+      "x_axis_label": "Ambient Temperature",
+      "x_axis_unit": "degC",
+      "y_axis_label": "Allowable Forward Current",
+      "y_axis_unit": "mA"
+    }
+  ],
+  "human_review_required": "Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.",
+  "project_metadata": {
+    "created_at_utc": "2026-06-04T00:00:00Z",
+    "created_by": "Jose Orozco",
+    "description": "Synthetic seed project for current derating versus ambient temperature.",
+    "intended_use": "thermal_derating_review_seed",
+    "led_identifier": "SYN-LED-DERATE-001",
+    "project_id": "synthetic_thermal_derating_curve",
+    "project_name": "Synthetic Thermal Derating Curve Demo",
+    "publication_classification": "Safe to publish"
+  },
+  "publication_classification": "Safe to publish",
+  "review_status": "pending_engineering_review",
+  "reviewer_notes": "Safe to publish as synthetic demo data; not reviewed for engineering use.",
+  "schema_version": "1.0",
+  "source_metadata": {
+    "manufacturer": "Synthetic LED Supplier",
+    "notes": "Synthetic plot source created for public-safe demonstration.",
+    "plot_region_px": {
+      "height": 410.0,
+      "left": 60.0,
+      "top": 40.0,
+      "width": 540.0
+    },
+    "source_category": "synthetic",
+    "source_id": "source_synthetic_thermal_derating_curve",
+    "source_name": "synthetic_thermal_derating_curve_synthetic_datasheet_plot",
+    "source_page": "synthetic_page_04",
+    "source_section": "synthetic_thermal_derating_curve",
+    "source_type": "synthetic_datasheet_style_plot",
+    "source_uri": "synthetic://led-curve-studio/synthetic_thermal_derating_curve"
+  },
+  "synthetic_label": "[SYNTHETIC \u2014 FOR DEMONSTRATION ONLY]"
+}
