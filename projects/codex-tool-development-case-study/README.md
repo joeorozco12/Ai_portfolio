@@ -1,6 +1,6 @@
 # Codex Tool Development Case Study
 
-[SYNTHETIC -- FOR DEMONSTRATION ONLY]
+[SYNTHETIC — FOR DEMONSTRATION ONLY]
 
 > Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
 
@@ -41,13 +41,15 @@ This project uses only synthetic and sanitized examples. It does not include pro
 - Scope-control example
 - Validation-log example
 - Human-review-boundary example
+- [validation_checklist.md](validation_checklist.md)
+- Synthetic capture artifacts in [captures](captures)
 
-## Screenshots or Screenshot Placeholders
+## Screenshots Or Capture Placeholders
 
-- `screenshots/codex_task_prompt.png`
-- `screenshots/scoped_file_tree.png`
-- `screenshots/validation_log.png`
-- `screenshots/human_review_boundary.png`
+- [captures/codex_task_prompt.md](captures/codex_task_prompt.md)
+- [captures/scoped_file_tree.md](captures/scoped_file_tree.md)
+- [captures/validation_log.md](captures/validation_log.md)
+- [captures/human_review_boundary.md](captures/human_review_boundary.md)
 
 ## Sanitized Sample Data
 
@@ -95,14 +97,14 @@ Jose defines the engineering workflow problem, constrains the data boundary, rev
 
 ## Next Improvements
 
-- Capture screenshot placeholders as synthetic screenshots.
+- Replace Markdown captures with reviewed image screenshots only if needed for a public page.
 - Add a one-page visual workflow diagram.
 - Add a short validation transcript from a future deterministic tool build.
 - Add a reusable task-template library for portfolio-safe engineering workflows.
 
 ## Proof Gaps
 
-- Screenshots are placeholders only.
+- Captures are synthetic Markdown captures rather than live IDE or terminal screenshots.
 - Final public copy still needs qualified review.
 - No live walkthrough capture is included yet.
 

@@ -71,6 +71,22 @@ SECONDARY_CHECKS = [
 ]
 
 REQUIRED_TEXT_ARTIFACTS = [
+    "UNVEIL_READINESS.md",
+    "LOCAL_TOOLBENCH.md",
+    "Screenshot Index.md",
+    "LED Datasheet-to-Model Extractor README.md",
+    "projects/codex-tool-development-case-study.md",
+    "projects/codex-tool-development-case-study/README.md",
+    "projects/codex-tool-development-case-study/codex_workflow_case_study.md",
+    "projects/codex-tool-development-case-study/validation_checklist.md",
+    "projects/codex-tool-development-case-study/examples/safe_task_prompt.md",
+    "projects/codex-tool-development-case-study/examples/scope_control_example.md",
+    "projects/codex-tool-development-case-study/examples/validation_log_example.md",
+    "projects/codex-tool-development-case-study/examples/human_review_boundary.md",
+    "projects/codex-tool-development-case-study/captures/codex_task_prompt.md",
+    "projects/codex-tool-development-case-study/captures/scoped_file_tree.md",
+    "projects/codex-tool-development-case-study/captures/validation_log.md",
+    "projects/codex-tool-development-case-study/captures/human_review_boundary.md",
     "projects/requirements-to-verification/generated_outputs/trace_matrix.md",
     "projects/requirements-to-verification/generated_outputs/ambiguity_report.md",
     "projects/requirements-to-verification/generated_outputs/assumptions_register.md",

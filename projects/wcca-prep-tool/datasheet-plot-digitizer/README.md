@@ -10,9 +10,9 @@ LED datasheet plots often contain voltage, current, temperature, luminous-flux, 
 
 ## Engineering Context
 
-LED Datasheet Curve Studio is a supporting data-preparation tool under the AI-Assisted WCCA Prep Tool. It converts public or synthetic LED datasheet-style plot images into calibrated, reviewable curve data packages for WCCA, MATLAB/Python simulation, thermal derating, luminous-flux prediction, feasibility screening, and design-review preparation.
+LED Datasheet Curve Studio is the implemented evidence for the active Project 6 framing: LED Datasheet-to-Model Extractor. It also remains a supporting data-preparation tool under the AI-Assisted WCCA Prep Tool. It converts public or synthetic LED datasheet-style plot images into calibrated, reviewable curve data packages for WCCA, MATLAB/Python simulation, thermal derating, luminous-flux prediction, feasibility screening, and design-review preparation.
 
-This project is not positioned as a standalone AI demo. It is a deterministic, review-controlled workflow component for turning datasheet-style curve inputs into traceable engineering artifacts.
+This project is not positioned as a standalone AI approval demo. It is a deterministic, review-controlled workflow component for turning datasheet-style curve inputs into traceable engineering artifacts.
 
 The included sample uses only synthetic datasheet-style data and a synthetic LED identifier. Do not add proprietary datasheets, customer programs, supplier records, internal requirements, schematics, BOM data, harness data, cost data, validation results, internal file paths, ticket numbers, or controlled source details.
 
@@ -199,6 +199,7 @@ The deterministic core and tested synthetic artifact path use only the Python st
 - Integrate the full curve-fit validation report into the Streamlit review workflow and generated Markdown package.
 - Wire the draft assisted extraction preview into the Streamlit UI after manual overlay controls are browser-verified.
 - Add reviewed adapters that feed WCCA and lighting-feasibility inputs only after signoff.
+- Define the final Project 6 reviewed LED model CSV/JSON schema for downstream Project 5 adapter work.
 
 ## Proof Gaps
 
@@ -210,6 +211,7 @@ The deterministic core and tested synthetic artifact path use only the Python st
 - Full validation output exists in the deterministic core but is not fully wired into the UI and generated export report yet.
 - Crop and click behavior needs a Streamlit canvas/image-coordinate component before it becomes a full interactive digitizer.
 - A qualified reviewer has not signed off on the workflow, fit model, or public screenshots.
+- Downstream adapters into Project 5 or WCCA remain planned and review-gated.
 
 ## Publication Classification
 

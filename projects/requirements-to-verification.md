@@ -23,28 +23,28 @@ This case study uses a synthetic automotive lighting module with low beam, high 
 
 ## Inputs
 
-- Input CSV reference: [../Synthetic Requirements Sample.csv](../Synthetic%20Requirements%20Sample.csv)
+- Input CSV reference: [../Synthetic Requirements Sample.csv](../Synthetic%20Requirements%20Sample.csv) with 25 synthetic rows
 - Planned rule inputs: verification-method dictionary, review-rule schema, and synthetic prompt/output log.
 - Data boundary: synthetic automotive lighting examples only.
 
 ## Outputs
 
-- Structured requirements table
+- Structured requirements table with 25 generated requirement IDs
 - Verification trace matrix
 - Ambiguity and open-question report
 - Assumptions register
 - Human-review checklist
 - CSV and Markdown exports in [requirements-to-verification/generated_outputs](requirements-to-verification/generated_outputs)
 
-## Screenshots or Screenshot Placeholders
+## Screenshots Or Capture Placeholders
 
-- `before_messy_requirement_notes.png`: synthetic messy notes before structuring
-- `generated_trace_matrix.png`: generated traceability matrix using synthetic rows
-- `review_checklist_export.png`: reviewer checklist with draft status fields
+- [requirements-to-verification/captures/cli_tool_run.md](requirements-to-verification/captures/cli_tool_run.md): terminal-style command output using synthetic rows
+- [requirements-to-verification/captures/trace_matrix_preview.md](requirements-to-verification/captures/trace_matrix_preview.md): generated traceability matrix using synthetic rows
+- [requirements-to-verification/captures/review_checklist_preview.md](requirements-to-verification/captures/review_checklist_preview.md): reviewer checklist with draft status fields
 
 ## Sanitized Sample Data
 
-The sample input file is [../Synthetic Requirements Sample.csv](../Synthetic%20Requirements%20Sample.csv). It uses generated IDs such as `SYN-REQ-001`, generic subsystem names, synthetic assumptions, and `Needs review` status. It is the only input CSV referenced by this Task 1 page.
+The sample input file is [../Synthetic Requirements Sample.csv](../Synthetic%20Requirements%20Sample.csv). It uses 25 generated IDs such as `SYN-REQ-001`, generic subsystem names, synthetic assumptions, and `Needs review` status. It is the only input CSV referenced by this Task 1 page.
 
 ## Sample Sanitized Output Description
 
@@ -101,7 +101,7 @@ Jose contributes the engineering taxonomy, lighting-domain framing, verification
 
 - Add a small Streamlit or static review UI mockup using synthetic data.
 - Extend parser tests for configurable rule dictionaries.
-- Replace Markdown mock captures with recreated synthetic screenshots if needed.
+- Replace Markdown mock captures with recreated synthetic screenshots only if needed for the portfolio page.
 - Add reviewer signoff fields to the exported Markdown brief.
 
 ## Proof Gaps
@@ -112,4 +112,4 @@ Jose contributes the engineering taxonomy, lighting-domain framing, verification
 
 ## Safe to Publish Status
 
-Needs review. This Markdown page uses synthetic content only, but it should not be published externally until screenshots and generated output samples are created from synthetic data and reviewed by a qualified engineer.
+Needs review. This Markdown page uses synthetic content only, but it should not be published externally until generated output samples and capture assets are reviewed by a qualified engineer.

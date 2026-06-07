@@ -42,11 +42,13 @@ Synthetic repo showing task brief, AGENTS.md, SPEC.md, TASKS.md, code stubs, tes
 - issue-to-code trace
 - release notes
 
-## Screenshot Placeholders
+## Screenshots Or Capture Placeholders
 
-- repo_structure.png
-- codex_task_plan.png
-- pytest_output.png
+- [projects/codex-tool-development-case-study/captures/codex_task_prompt.md](projects/codex-tool-development-case-study/captures/codex_task_prompt.md)
+- [projects/codex-tool-development-case-study/captures/scoped_file_tree.md](projects/codex-tool-development-case-study/captures/scoped_file_tree.md)
+- [projects/codex-tool-development-case-study/captures/validation_log.md](projects/codex-tool-development-case-study/captures/validation_log.md)
+- [projects/codex-tool-development-case-study/captures/human_review_boundary.md](projects/codex-tool-development-case-study/captures/human_review_boundary.md)
+- [projects/codex-tool-development-case-study/validation_checklist.md](projects/codex-tool-development-case-study/validation_checklist.md)
 
 ## Sanitized Sample Data
 
@@ -96,7 +98,7 @@ Jose identifies the real engineering bottleneck, constrains the data boundary, a
 
 ## Next Improvements
 
-- Capture sanitized prompt excerpts.
+- Review the synthetic prompt, scope, validation, and human-review capture artifacts.
 - Add architecture diagram.
 - Add test coverage badge.
 - Add one-minute walkthrough.

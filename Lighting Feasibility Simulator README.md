@@ -10,6 +10,8 @@ Synthetic feasibility tool for first-pass LED-driver and thermal/electrical trad
 
 Secondary portfolio project
 
+Working deterministic simulator is implemented under [projects/lighting-feasibility-mini-simulator](projects/lighting-feasibility-mini-simulator). Current proof includes feasibility summaries, plot PNGs, sensitivity sweeps, unit tests, and a reviewed-only Project 6 input-boundary document.
+
 ## Problem
 
 Early feasibility discussions need quick, transparent estimates without pretending to replace detailed engineering analysis.
@@ -27,23 +29,23 @@ Synthetic automotive lighting loads, generated voltage/current limits, basic eff
 
 ## Inputs
 
-- synthetic_led_load_cases.csv
-- demo_limits.yaml
-- thermal_assumptions.json
+- [projects/lighting-feasibility-mini-simulator/data/synthetic_lighting_cases.csv](projects/lighting-feasibility-mini-simulator/data/synthetic_lighting_cases.csv)
+- Future reviewed Project 6 LED model CSV/JSON outputs only through an adapter that is not implemented yet
 
 ## Outputs
 
-- feasibility table
-- power/temperature plots
-- risk flags
-- assumption notes
-- next-analysis recommendations
+- [projects/lighting-feasibility-mini-simulator/outputs/feasibility_summary.md](projects/lighting-feasibility-mini-simulator/outputs/feasibility_summary.md)
+- [projects/lighting-feasibility-mini-simulator/outputs/feasibility_summary.csv](projects/lighting-feasibility-mini-simulator/outputs/feasibility_summary.csv)
+- [projects/lighting-feasibility-mini-simulator/outputs/plots](projects/lighting-feasibility-mini-simulator/outputs/plots)
+- [projects/lighting-feasibility-mini-simulator/outputs/sensitivity](projects/lighting-feasibility-mini-simulator/outputs/sensitivity)
+- [projects/lighting-feasibility-mini-simulator/outputs/screenshots/portfolio_capture_summary.md](projects/lighting-feasibility-mini-simulator/outputs/screenshots/portfolio_capture_summary.md)
 
-## Screenshot Placeholders
+## Screenshots Or Capture Placeholders
 
-- simulator_input_form.png
-- feasibility_plot.png
-- risk_flag_summary.png
+- [projects/lighting-feasibility-mini-simulator/outputs/screenshots/portfolio_capture_summary.md](projects/lighting-feasibility-mini-simulator/outputs/screenshots/portfolio_capture_summary.md)
+- [projects/lighting-feasibility-mini-simulator/outputs/plots/current_margin_by_case.png](projects/lighting-feasibility-mini-simulator/outputs/plots/current_margin_by_case.png)
+- [projects/lighting-feasibility-mini-simulator/outputs/plots/thermal_margin_by_case.png](projects/lighting-feasibility-mini-simulator/outputs/plots/thermal_margin_by_case.png)
+- [projects/lighting-feasibility-mini-simulator/outputs/sensitivity/plots/ambient_temperature_sweep.png](projects/lighting-feasibility-mini-simulator/outputs/sensitivity/plots/ambient_temperature_sweep.png)
 
 ## Sanitized Sample Data
 
@@ -91,9 +93,9 @@ Jose defines which calculations are acceptable for first-pass screening and clar
 
 ## Next Improvements
 
-- Add sensitivity sweep.
-- Add UI sliders.
-- Add exportable feasibility memo.
+- Complete qualified review of equations, thresholds, and sensitivity ranges.
+- Add reviewed Project 6 adapter only after the LED model schema is finalized.
+- Add UI sliders only after deterministic engine evidence is accepted.
 
 ## Safe to Publish?
 

@@ -1,6 +1,6 @@
 # Codex Tool Development Case Study
 
-[SYNTHETIC -- FOR DEMONSTRATION ONLY]
+[SYNTHETIC — FOR DEMONSTRATION ONLY]
 
 > Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
 
@@ -100,13 +100,13 @@ Jose defines the engineering workflow, data boundary, review gates, domain assum
 
 - Synthetic examples do not represent a released design.
 - Deterministic checks are simplified workflow demonstrations.
-- Mock captures are not real screenshots.
+- Synthetic Markdown captures are not live IDE or terminal screenshots.
 - Review checklists are not complete until a qualified reviewer fills them out.
 - The case study shows controlled development practice, not final engineering approval.
 
 ## Next Improvements
 
-- Add final reviewed screenshots from a clean synthetic demo environment.
+- Add final reviewed screenshots from a clean synthetic demo environment only if needed for the public page.
 - Add a compact workflow diagram showing prompt, scoped files, validation, and review.
 - Add a short transcript showing one controlled Codex iteration from task to tests.
 - Link this case study to the strongest finished proof assets after review.
@@ -114,7 +114,7 @@ Jose defines the engineering workflow, data boundary, review gates, domain assum
 ## Proof Gaps
 
 - Final public-copy review is still needed.
-- Screenshots are placeholders or mock captures unless explicitly labeled otherwise.
+- Captures are synthetic Markdown captures unless explicitly labeled otherwise.
 - The case study should be reviewed alongside the committed proof assets before publication.
 
 ## Safe to Publish Status

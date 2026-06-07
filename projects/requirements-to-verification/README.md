@@ -10,7 +10,7 @@ Requirements-to-verification work often starts with mixed inputs: requirement ro
 
 ## Engineering Context
 
-This Project 1 prototype uses only synthetic automotive lighting examples. It prepares review artifacts for low beam, high beam, DRL, input-voltage behavior, thermal review triggers, traceability, and human-review governance. It does not use restricted source material, nonpublic program data, internal identifiers, or real engineering documents.
+This Project 1 prototype uses only synthetic automotive lighting examples. It prepares review artifacts for low beam, high beam, DRL, input-voltage behavior, diagnostics, boost-driver screening hooks, thermal review triggers, traceability, and human-review governance. It does not use restricted source material, nonpublic program data, internal identifiers, or real engineering documents.
 
 ## Workflow
 
@@ -38,7 +38,7 @@ projects/requirements-to-verification/captures
 
 ## Inputs
 
-- [../../Synthetic Requirements Sample.csv](../../Synthetic%20Requirements%20Sample.csv): source-pack synthetic requirements CSV.
+- [../../Synthetic Requirements Sample.csv](../../Synthetic%20Requirements%20Sample.csv): source-pack synthetic requirements CSV with 25 rows for the interview demo.
 - [fixtures/ambiguous_requirements_fixture.csv](fixtures/ambiguous_requirements_fixture.csv): synthetic test fixture with intentionally weak language.
 
 Required input columns:
@@ -72,6 +72,14 @@ Mock captures are written to [captures](captures):
 - `ambiguity_report_preview.md`
 - `assumptions_register_preview.md`
 - `review_checklist_preview.md`
+
+Current regenerated package summary:
+
+- Requirements loaded: 25
+- Trace matrix rows: 25
+- Ambiguity findings: 41
+- Assumptions: 37
+- Checklist items: 8
 
 ## Human Review Controls
 
@@ -109,11 +117,11 @@ The tests verify CSV loading, required-column enforcement, trace matrix generati
 
 ## Safe to Publish Status
 
-Needs review. The prototype uses synthetic data and deterministic rules, but generated outputs and capture files still need qualified human review before external publication.
+Needs review. The prototype uses synthetic data and deterministic rules, but generated outputs and capture files still need qualified human review before external publication or before being described as reviewed engineering evidence.
 
 ## Next Improvements
 
 - Add a compact HTML preview page after the Markdown/CSV workflow is reviewed.
 - Add reviewer signoff metadata fields to the generated outputs.
 - Add configurable rule dictionaries for domain mapping and acceptance-criteria detection.
-- Add a small visual dashboard only after the CLI evidence is accepted.
+- Add final visual screenshots only after the CLI evidence and generated capture files are accepted.

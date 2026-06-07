@@ -1,6 +1,6 @@
 # Validation Log Example
 
-[SYNTHETIC -- FOR DEMONSTRATION ONLY]
+[SYNTHETIC — FOR DEMONSTRATION ONLY]
 
 > Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
 
@@ -17,7 +17,7 @@ This example shows how a Codex-assisted engineering workflow tool can record val
 | Check | Command or Method | Expected Result | Status |
 |---|---|---|---|
 | Required files present | Review project folder | README, case study, examples present | Pass |
-| Synthetic label present | Text search | `[SYNTHETIC -- FOR DEMONSTRATION ONLY]` appears in public artifacts | Pass |
+| Synthetic label present | Text search | `[SYNTHETIC — FOR DEMONSTRATION ONLY]` appears in public artifacts | Pass |
 | Human-review note present | Text search | Human Review Required note appears in engineering artifacts | Pass |
 | Scope check | `git status --short` | Changes are limited to approved folder | Pass |
 | Unit tests for deterministic tools | `python3 -m unittest discover -s tests` | Tests pass before report use | Example only |

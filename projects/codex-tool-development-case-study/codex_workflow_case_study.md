@@ -1,6 +1,6 @@
 # Codex Workflow Case Study
 
-[SYNTHETIC -- FOR DEMONSTRATION ONLY]
+[SYNTHETIC — FOR DEMONSTRATION ONLY]
 
 > Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
 
@@ -89,13 +89,15 @@ The workflow avoids proprietary data by using synthetic automotive lighting exam
 - Scope-control example
 - Validation-log example
 - Human-review-boundary example
+- Validation checklist
+- Synthetic Markdown captures
 
-## Screenshots or Screenshot Placeholders
+## Screenshots Or Capture Placeholders
 
-- `screenshots/codex_task_prompt.png`
-- `screenshots/scoped_file_tree.png`
-- `screenshots/validation_log.png`
-- `screenshots/human_review_boundary.png`
+- [captures/codex_task_prompt.md](captures/codex_task_prompt.md)
+- [captures/scoped_file_tree.md](captures/scoped_file_tree.md)
+- [captures/validation_log.md](captures/validation_log.md)
+- [captures/human_review_boundary.md](captures/human_review_boundary.md)
 
 ## Sanitized Sample Data
 
@@ -155,14 +157,14 @@ This case study shows that Codex can help engineering teams create controlled wo
 
 ## Next Improvements
 
-- Add synthetic screenshots for the task prompt, file tree, validation log, and review-boundary page.
+- Replace Markdown captures with reviewed screenshots only if needed for a public page.
 - Add a reusable prompt template for future engineering workflow tools.
 - Add an example validation checklist for deterministic calculation tools.
 - Add a simple diagram showing task scope, Codex action, validation, and human review.
 
 ## Proof Gaps
 
-- Screenshots are placeholders only.
+- Captures are synthetic Markdown captures rather than live IDE or terminal screenshots.
 - The case study has not been reviewed as final public copy.
 - No video walkthrough or live transcript is included yet.
 

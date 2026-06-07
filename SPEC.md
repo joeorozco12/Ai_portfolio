@@ -46,6 +46,8 @@ The source pack contains exactly 20 files so it can fit within a 20-file GPT kno
 19. Interview Story Bank.md
 20. Resume LinkedIn Claims.md
 
+Current Project 6 reveal framing is `LED Datasheet-to-Model Extractor`; `AI Studio Bridge Demo README.md` remains appendix-only unless separately implemented and reviewed.
+
 ## Functional Requirements
 
 - FR-001: The agent shall identify AI fundamentals demonstrated by the portfolio materials.

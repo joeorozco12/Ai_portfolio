@@ -11,12 +11,12 @@ Codex-assisted engineering workflow that converts synthetic automotive-lighting 
 - Portfolio role: Priority proof spine item 1
 - Working prototype: [projects/requirements-to-verification/README.md](projects/requirements-to-verification/README.md)
 - Case study page: [projects/requirements-to-verification.md](projects/requirements-to-verification.md)
-- Sample input CSV: [Synthetic Requirements Sample.csv](Synthetic%20Requirements%20Sample.csv)
+- Sample input CSV: [Synthetic Requirements Sample.csv](Synthetic%20Requirements%20Sample.csv) with 25 synthetic rows
 - Publication classification: Needs review
 
 ## Status
 
-Working deterministic prototype added for Project 1. Public publication still needs qualified human review of generated outputs and capture files.
+Working deterministic prototype added for Project 1. The current local demo uses 25 synthetic requirements and regenerated CSV/Markdown/capture outputs. Public publication still needs qualified human review of generated outputs and capture files.
 
 ## Problem
 
@@ -61,10 +61,10 @@ Required columns:
 
 ## Outputs
 
-- Requirements table with stable synthetic IDs and normalized requirement text.
+- Requirements table with 25 stable synthetic IDs and normalized requirement text.
 - Verification trace matrix connecting each requirement to verification method, proposed test or inspection, risk, assumptions, and review status.
 - Risk and assumptions register separating generated assumptions from verified facts.
-- Ambiguity report listing vague wording, missing thresholds, and items requiring engineer disposition.
+- Ambiguity report listing vague wording, missing thresholds, missing units, and items requiring engineer disposition.
 - Markdown review brief summarizing open questions and publish-readiness gaps.
 - CSV and Markdown exports in [projects/requirements-to-verification/generated_outputs](projects/requirements-to-verification/generated_outputs).
 
@@ -72,11 +72,13 @@ Required columns:
 
 For the sample CSV, the output should be a draft traceability package. A representative output row would preserve `SYN-REQ-004`, classify it under DRL functional behavior, propose `Analysis + Test`, carry forward the synthetic assumption about configurable current reduction, flag the row as ambiguous, and leave `Human_Review_Status` as `Needs review`.
 
-## Screenshot Placeholders
+## Screenshots Or Capture Placeholders
 
-- before_messy_requirement_notes.png
-- generated_trace_matrix.png
-- review_checklist_export.png
+- [projects/requirements-to-verification/captures/cli_tool_run.md](projects/requirements-to-verification/captures/cli_tool_run.md)
+- [projects/requirements-to-verification/captures/trace_matrix_preview.md](projects/requirements-to-verification/captures/trace_matrix_preview.md)
+- [projects/requirements-to-verification/captures/ambiguity_report_preview.md](projects/requirements-to-verification/captures/ambiguity_report_preview.md)
+- [projects/requirements-to-verification/captures/assumptions_register_preview.md](projects/requirements-to-verification/captures/assumptions_register_preview.md)
+- [projects/requirements-to-verification/captures/review_checklist_preview.md](projects/requirements-to-verification/captures/review_checklist_preview.md)
 
 ## Sanitized Sample Data
 
@@ -129,9 +131,9 @@ Jose defines the engineering taxonomy, decides acceptable verification mappings,
 
 ## Proof Gaps
 
-- Replace screenshot placeholders with recreated UI screenshots using synthetic data only.
-- Add a generated sample traceability output file after the schema is finalized.
-- Add a short parser/test transcript showing deterministic checks on the CSV columns.
+- Replace Markdown capture placeholders with final reviewed screenshots only if needed for the portfolio page.
+- Add reviewer disposition fields beyond placeholders if Jose completes a review pass.
+- Add a short parser/test transcript image if Markdown command output is not enough for the interview demo.
 - Complete final human review before publishing externally.
 
 ## Next Improvements

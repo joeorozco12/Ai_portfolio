@@ -17,9 +17,11 @@ This project structures synthetic automotive lighting review notes into draft de
 Project 4 sits downstream of:
 
 - Project 1: Requirements-to-Verification Tool
+- Project 6: LED Datasheet-to-Model Extractor evidence
+- Project 5: Lighting Feasibility Mini-Simulator
 - Project 2: AI-Assisted WCCA Prep Tool
 
-Project 1 turns synthetic requirements into reviewable verification structure. Project 2 prepares synthetic WCCA inputs, assumptions, and evidence prompts. Project 4 uses that kind of upstream structure as design-review preparation context: it converts review notes, risks, assumptions, validation gaps, mode behavior, and diagnostic expectations into structured artifacts that are easier for a qualified engineer to inspect before review.
+Project 1 turns synthetic requirements into reviewable verification structure. Project 6 demonstrates reviewed LED model extraction boundaries. Project 5 performs first-pass feasibility screening from reviewed synthetic inputs. Project 2 prepares synthetic WCCA inputs, assumptions, and evidence prompts. Project 4 uses that kind of upstream structure as design-review preparation context: it converts review notes, risks, assumptions, validation gaps, mode behavior, and diagnostic expectations into structured artifacts that are easier for a qualified engineer to inspect before review.
 
 ## Problem
 

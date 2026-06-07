@@ -57,3 +57,23 @@
 - [ ] Add MATLAB/Python plots.
 - [ ] Add Streamlit UI mockups.
 - [ ] Add 30/60/90 day execution tracker.
+
+## June 12, 2026 Non-UX Interview Demo Checkpoint
+
+- [x] Add root non-UX reveal readiness checklist.
+- [x] Expand Requirements-to-Verification synthetic source data to at least 25 rows.
+- [x] Regenerate Project 1 traceability, ambiguity, assumptions, review checklist, and capture outputs.
+- [x] Reframe Project 6 as LED Datasheet-to-Model Extractor and keep AI Studio Bridge appendix-only.
+- [x] Add Project 3 synthetic capture artifacts and validation checklist.
+- [ ] Complete Jose's qualified review of formulas, thresholds, assumptions, screenshots/captures, and public wording.
+- [ ] Replace Markdown captures with final reviewed screenshots only where needed.
+
+## Public QR Web App Checkpoint
+
+- [x] Add QR-ready static UX console under `ux-console/`.
+- [x] Add browser-only synthetic demos for Requirements-to-Verification and Lighting Feasibility.
+- [x] Add evidence dashboards for WCCA Prep, Design Review Readiness, and portfolio evidence.
+- [ ] Add GitHub Pages Actions workflow for `ux-console/`.
+- [ ] Configure GitHub remote and verify the public `/tools` route.
+- [ ] Generate final printed QR asset only after the Pages URL is stable.
+- [ ] Complete Jose's publication review before changing any artifact status out of `Needs review`.

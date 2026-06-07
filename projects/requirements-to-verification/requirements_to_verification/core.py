@@ -702,7 +702,7 @@ def _count_issue_types(ambiguity_report: Sequence[Dict[str, str]]) -> Dict[str, 
 def _write_csv(path: Path, rows: Sequence[Dict[str, str]], columns: Sequence[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=columns, extrasaction="ignore")
+        writer = csv.DictWriter(handle, fieldnames=columns, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 

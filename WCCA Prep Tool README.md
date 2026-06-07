@@ -10,6 +10,8 @@ Synthetic LED-driver WCCA preparation workflow that organizes parameters, tolera
 
 Priority proof spine
 
+Working deterministic prototype is implemented under [projects/wcca-prep-tool](projects/wcca-prep-tool). The LED Datasheet-to-Model Extractor evidence is implemented under [projects/wcca-prep-tool/datasheet-plot-digitizer](projects/wcca-prep-tool/datasheet-plot-digitizer) and supports the WCCA prep story as a reviewed data-preparation path.
+
 ## Problem
 
 Worst-case circuit analysis preparation is slow when assumptions, tolerances, derating limits, equations, CSV exports, and plots live in scattered notes and scripts.
@@ -28,25 +30,24 @@ Synthetic LED-driver case with generated voltage, current, tolerance, efficiency
 
 ## Inputs
 
-- synthetic_wcca_sample.csv
-- calculation_config.yaml
-- plot_style_config.json
-- review_limit_dictionary.json
+- [projects/wcca-prep-tool/data/synthetic_wcca_cases.csv](projects/wcca-prep-tool/data/synthetic_wcca_cases.csv)
+- [projects/wcca-prep-tool/data/operating_conditions.csv](projects/wcca-prep-tool/data/operating_conditions.csv)
+- Reviewed extractor outputs may become future inputs only after Project 6 adapter review.
 
 ## Outputs
 
-- parameter table
-- corner-case summary
-- assumption register
-- plots
-- review memo
-- open questions list
+- [projects/wcca-prep-tool/outputs/synthetic_wcca_report.md](projects/wcca-prep-tool/outputs/synthetic_wcca_report.md)
+- [projects/wcca-prep-tool/outputs/synthetic_wcca_summary.csv](projects/wcca-prep-tool/outputs/synthetic_wcca_summary.csv)
+- [projects/wcca-prep-tool/outputs/missing_data_warnings.md](projects/wcca-prep-tool/outputs/missing_data_warnings.md)
+- [projects/wcca-prep-tool/outputs/plots](projects/wcca-prep-tool/outputs/plots)
+- [projects/wcca-prep-tool/captures](projects/wcca-prep-tool/captures)
 
-## Screenshot Placeholders
+## Screenshots Or Capture Placeholders
 
-- parameter_audit_table.png
-- wcca_corner_plot.png
-- assumption_register.png
+- [projects/wcca-prep-tool/captures/cli_run_mock.md](projects/wcca-prep-tool/captures/cli_run_mock.md)
+- [projects/wcca-prep-tool/captures/generated_summary_table_mock.md](projects/wcca-prep-tool/captures/generated_summary_table_mock.md)
+- [projects/wcca-prep-tool/captures/plot_gallery_preview_mock.md](projects/wcca-prep-tool/captures/plot_gallery_preview_mock.md)
+- [projects/wcca-prep-tool/outputs/plots/margin_by_case.png](projects/wcca-prep-tool/outputs/plots/margin_by_case.png)
 
 ## Sanitized Sample Data
 
@@ -95,10 +96,10 @@ Jose defines equations, validates assumptions, checks tolerances, reviews plots,
 
 ## Next Improvements
 
-- Add Monte Carlo demo.
-- Add MATLAB Live Script variant.
-- Add plot gallery.
-- Add equation review checklist.
+- Complete the equation review checklist with reviewer notes.
+- Add Monte Carlo demo only after the deterministic WCCA prep equations are reviewed.
+- Add MATLAB Live Script variant only after current Python outputs are accepted.
+- Replace Markdown mock captures with reviewed image screenshots only if needed.
 
 ## Safe to Publish?
 

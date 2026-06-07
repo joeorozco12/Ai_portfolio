@@ -19,7 +19,9 @@ Core message: **AI accelerates engineering workflow execution. Engineers own fin
 3. Codex Tool Development Case Study
 4. Design Review Readiness Assistant
 5. Lighting Feasibility Mini-Simulator
-6. AI Studio Engineering Bridge Demo
+6. LED Datasheet-to-Model Extractor
+
+Appendix-only: AI Studio Engineering Bridge Demo. Do not use it as the active Project 6 proof item unless it is separately implemented and reviewed.
 
 ## Required Artifact Sections
 

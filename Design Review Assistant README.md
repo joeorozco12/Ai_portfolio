@@ -10,6 +10,8 @@ Workflow that converts synthetic project notes into a design-review readiness pa
 
 Secondary portfolio project
 
+Working deterministic generator and validator are implemented under [projects/design-review-readiness-assistant](projects/design-review-readiness-assistant). The project already produces Markdown, CSV, and generated PNG evidence for the local interview demo.
+
 ## Problem
 
 Design reviews lose time when assumptions, open questions, test gaps, and decision records are scattered or stale.
@@ -27,25 +29,24 @@ Synthetic automotive lighting electronics review packet with requirements, WCCA 
 
 ## Inputs
 
-- synthetic_design_notes.md
-- requirements_trace.csv
-- risk_register.csv
-- test_plan_outline.md
+- [projects/design-review-readiness-assistant/inputs/synthetic_lighting_review_notes.md](projects/design-review-readiness-assistant/inputs/synthetic_lighting_review_notes.md)
 
 ## Outputs
 
-- readiness brief
-- risk register
-- assumption log
-- action-item list
-- review agenda
-- evidence gap list
+- [projects/design-review-readiness-assistant/outputs/design_review_packet.md](projects/design-review-readiness-assistant/outputs/design_review_packet.md)
+- [projects/design-review-readiness-assistant/outputs/risk_register.csv](projects/design-review-readiness-assistant/outputs/risk_register.csv)
+- [projects/design-review-readiness-assistant/outputs/assumptions_list.md](projects/design-review-readiness-assistant/outputs/assumptions_list.md)
+- [projects/design-review-readiness-assistant/outputs/validation_test_gaps.md](projects/design-review-readiness-assistant/outputs/validation_test_gaps.md)
+- [projects/design-review-readiness-assistant/outputs/mode_to_test_matrix.md](projects/design-review-readiness-assistant/outputs/mode_to_test_matrix.md)
+- [projects/design-review-readiness-assistant/outputs/diagnostic_response_table.md](projects/design-review-readiness-assistant/outputs/diagnostic_response_table.md)
 
-## Screenshot Placeholders
+## Screenshots Or Capture Placeholders
 
-- readiness_dashboard.png
-- review_packet_preview.png
-- risk_register_export.png
+- [projects/design-review-readiness-assistant/screenshots/dashboard_overview.png](projects/design-review-readiness-assistant/screenshots/dashboard_overview.png)
+- [projects/design-review-readiness-assistant/screenshots/review_packet_preview.png](projects/design-review-readiness-assistant/screenshots/review_packet_preview.png)
+- [projects/design-review-readiness-assistant/screenshots/risk_register_export.png](projects/design-review-readiness-assistant/screenshots/risk_register_export.png)
+- [projects/design-review-readiness-assistant/screenshots/mode_to_test_matrix.png](projects/design-review-readiness-assistant/screenshots/mode_to_test_matrix.png)
+- [projects/design-review-readiness-assistant/screenshots/diagnostic_response_table.png](projects/design-review-readiness-assistant/screenshots/diagnostic_response_table.png)
 
 ## Sanitized Sample Data
 
@@ -93,9 +94,9 @@ Jose defines readiness criteria, verifies risk severity, confirms assumptions, a
 
 ## Next Improvements
 
-- Add readiness dashboard.
-- Add action-owner export.
-- Add sample review packet screenshots.
+- Add a local reviewer-disposition UI after the generated packet is reviewed.
+- Add deeper row-count tests for Markdown tables.
+- Add final public screenshots only after Jose accepts the generated PNG evidence.
 
 ## Safe to Publish?
 

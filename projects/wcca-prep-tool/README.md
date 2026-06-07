@@ -25,6 +25,8 @@ This tool prepares WCCA inputs and review artifacts. It is not a final WCCA appr
 
 This Task 2 proof package is a deterministic WCCA preparation pipeline for synthetic automotive LED driver examples. It does not use proprietary circuit data, customer limits, internal derating rules, schematics, BOMs, harness data, cost data, validation data, or real program identifiers.
 
+The adjacent `datasheet-plot-digitizer` folder is now framed as Project 6 LED Datasheet-to-Model Extractor evidence. It supports the WCCA story by showing how synthetic curve data can be transformed into reviewed lookup/model artifacts, but its Streamlit path is still unverified.
+
 The proof package demonstrates:
 
 - load synthetic WCCA case data from CSV
@@ -82,6 +84,7 @@ Default outputs:
 - Equation review checklist: [docs/equation_review_checklist.md](docs/equation_review_checklist.md)
 - Unit tests: [tests/test_calculations.py](tests/test_calculations.py)
 - Proof asset tests: [tests/test_proof_assets.py](tests/test_proof_assets.py)
+- Project 6 extractor evidence: [datasheet-plot-digitizer/README.md](datasheet-plot-digitizer/README.md)
 - CLI execution result: `WCCA results: 60 rows`; `Warnings: 3`; `Capture files: 5`
 
 ## Codex Contribution
@@ -144,6 +147,7 @@ Synthetic status thresholds:
 - Monte Carlo workflow is not included.
 - Reviewer checklist completion is still needed: [docs/equation_review_checklist.md](docs/equation_review_checklist.md)
 - The generated report remains draft output until reviewed against the sanitization checklist.
+- Reviewed adapters from Project 6 extractor outputs to WCCA inputs remain planned, not implemented.
 
 ## Safe to Publish Status
 

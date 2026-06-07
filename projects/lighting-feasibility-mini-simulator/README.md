@@ -114,9 +114,11 @@ Task 5C adds deterministic sweeps for selected synthetic inputs:
 
 The optical-efficiency sweep uses a synthetic relative optical factor because the base engine does not model optical output directly. Lower relative optical efficiency increases LED current demand for a fixed notional light target. Sweep ranges, assumptions, limitations, and human-review controls are documented in `docs/sensitivity_sweeps.md`.
 
-## Future Project 6 Integration
+## Project 6 Reviewed-Input Boundary
 
-Project 6 is planned as an upstream LED datasheet-to-model extractor. Project 5 should only consume reviewed Project 6 LED model CSV or JSON outputs through a future optional adapter, not raw datasheet extraction. The intended interface, metadata requirements, and review gate are documented in `docs/project6_input_interface.md`.
+Project 6 is now framed as the LED Datasheet-to-Model Extractor, with deterministic evidence in `projects/wcca-prep-tool/datasheet-plot-digitizer`. Project 5 should only consume reviewed Project 6 LED model CSV or JSON outputs through a future optional adapter, not raw datasheet extraction. The intended interface, metadata requirements, and review gate are documented in `docs/project6_input_interface.md`.
+
+The adapter is not implemented yet. Current Project 5 demo inputs remain the synthetic rows in `data/synthetic_lighting_cases.csv`.
 
 ## Thresholds
 
@@ -171,6 +173,7 @@ Jose defines the engineering framing, acceptable first-pass screening scope, rev
 
 - Add cross-variable sweep combinations after single-variable behavior is reviewed.
 - Add reviewed equation annotations from a qualified engineer.
+- Add the reviewed Project 6 adapter only after the LED model CSV/JSON schema and review-status values are finalized.
 - Add a Streamlit shell only after the deterministic engine and thresholds are reviewed.
 
 ## How To Run

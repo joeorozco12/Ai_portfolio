@@ -2,13 +2,23 @@
 
 [SYNTHETIC — FOR DEMONSTRATION ONLY]
 
+> Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
+
+Publication classification: Needs review
+
+## Current Portfolio Role
+
+Appendix-only concept. For the June 12, 2026 non-UX interview demo, the active Project 6 proof item is [LED Datasheet-to-Model Extractor README.md](LED%20Datasheet-to-Model%20Extractor%20README.md), implemented through LED Datasheet Curve Studio under [projects/wcca-prep-tool/datasheet-plot-digitizer](projects/wcca-prep-tool/datasheet-plot-digitizer).
+
+Do not present this AI Studio Bridge concept as the main Project 6 tool unless it is separately implemented with schemas, outputs, validation logs, and reviewed synthetic captures.
+
 ## One-Line Summary
 
 Bridge demo showing how structured prompts, schemas, and review gates can turn AI Studio outputs into engineering workflow artifacts.
 
 ## Status
 
-Secondary portfolio project
+Deprecated / appendix-only concept
 
 ## Problem
 
@@ -93,6 +103,13 @@ Jose maps AI Studio output formats to engineering artifacts and confirms outputs
 - Add schema validation screenshot.
 - Add prompt/output comparison.
 - Add example downstream import.
+
+## Proof Gaps
+
+- No schema validator is implemented in this folder.
+- No structured output sample is checked in.
+- No reviewed AI Studio prompt/output comparison is present.
+- The active Project 6 evidence is the LED Datasheet-to-Model Extractor path, not this concept note.
 
 ## Safe to Publish?
 

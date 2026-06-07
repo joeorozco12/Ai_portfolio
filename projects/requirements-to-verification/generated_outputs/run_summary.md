@@ -6,10 +6,10 @@
 
 Publication classification: Needs review
 
-- Requirements loaded: 12
-- Trace matrix rows: 12
-- Ambiguity findings: 19
-- Assumptions: 18
+- Requirements loaded: 25
+- Trace matrix rows: 25
+- Ambiguity findings: 41
+- Assumptions: 37
 - Checklist items: 8
 - Publication classification: Needs review
 

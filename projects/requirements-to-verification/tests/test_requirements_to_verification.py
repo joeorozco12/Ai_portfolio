@@ -21,7 +21,7 @@ class RequirementsToVerificationTests(unittest.TestCase):
     def test_csv_input_can_be_loaded(self):
         result = load_requirements(REPO_ROOT / "Synthetic Requirements Sample.csv")
 
-        self.assertEqual(len(result.rows), 12)
+        self.assertEqual(len(result.rows), 25)
         self.assertEqual(result.rows[0]["Requirement_ID"], "SYN-REQ-001")
         self.assertFalse(result.warnings)
 
