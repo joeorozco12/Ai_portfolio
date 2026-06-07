@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Engineering Workflow Portfolio Console</title>
+    <link rel="stylesheet" href="styles.css?v=qr-demo-20260606">
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-dashboard" viewBox="0 0 24 24">
+        <path d="M4 4h7v7H4zM13 4h7v4h-7zM13 10h7v10h-7zM4 13h7v7H4z"></path>
+      </symbol>
+      <symbol id="icon-queue" viewBox="0 0 24 24">
+        <path d="M5 6h14M5 12h14M5 18h9"></path>
+      </symbol>
+      <symbol id="icon-artifact" viewBox="0 0 24 24">
+        <path d="M7 3h7l5 5v13H7z"></path>
+        <path d="M14 3v6h5M10 13h6M10 17h6"></path>
+      </symbol>
+      <symbol id="icon-gate" viewBox="0 0 24 24">
+        <path d="M6 11V8a6 6 0 0 1 12 0v3"></path>
+        <path d="M5 11h14v10H5z"></path>
+        <path d="M12 15v3"></path>
+      </symbol>
+      <symbol id="icon-project" viewBox="0 0 24 24">
+        <path d="M4 5h16v14H4z"></path>
+        <path d="M8 9h8M8 13h5"></path>
+      </symbol>
+      <symbol id="icon-filter" viewBox="0 0 24 24">
+        <path d="M4 6h16M7 12h10M10 18h4"></path>
+      </symbol>
+    </svg>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Project navigation">
+        <a class="brand" href="#">
+          <span class="brand-mark">AI</span>
+          <span>
+            <strong>Workflow Console</strong>
+            <small>Engineering portfolio</small>
+          </span>
+        </a>
+        <nav id="projectNav" class="project-nav"></nav>
+      </aside>
+
+      <main class="main-area">
+        <section class="safety-banner" aria-label="Publication boundary">
+          <div>
+            <strong id="syntheticLabel">[SYNTHETIC — FOR DEMONSTRATION ONLY]</strong>
+            <span id="humanReviewNote">Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.</span>
+          </div>
+          <span class="publication-pill">Publication: <strong id="publicationState">Needs review</strong></span>
+        </section>
+
+        <header class="workspace-header">
+          <div>
+            <p class="section-label">Local review shell</p>
+            <h1 id="pageTitle">Engineering Workflow Portfolio Console</h1>
+            <p id="pageSummary" class="page-summary"></p>
+          </div>
+          <div class="header-actions">
+            <a class="action-link" href="#tools">QR tools</a>
+            <a class="action-link" href="#tools/evidence">Evidence</a>
+          </div>
+        </header>
+
+        <section id="statusStrip" class="status-strip" aria-label="Workflow status"></section>
+
+        <div class="workspace-grid">
+          <section class="primary-panel">
+            <div id="tabBar" class="tab-bar" role="tablist" aria-label="Workflow views"></div>
+            <div id="mainPanel" class="panel-body"></div>
+          </section>
+
+          <aside class="inspector-panel" aria-label="Project review boundary">
+            <h2>Review Boundary</h2>
+            <p id="boundaryText"></p>
+            <div class="gate-stack" id="gateStack"></div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <script src="data/portfolio_workflows.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
