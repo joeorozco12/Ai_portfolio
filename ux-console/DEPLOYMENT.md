@@ -26,7 +26,9 @@ The `/tools` route is a static shim that opens `index.html#tools`. Deep links ar
 
 Use the repository workflow at `.github/workflows/deploy-ux-console.yml`.
 
-The workflow uploads only the `ux-console/` directory as the Pages artifact. No build command, backend, login, API key, or server runtime is required.
+The workflow runs on pushes to `main` and through manual `workflow_dispatch`. It uploads only the `ux-console/` directory as the Pages artifact. No build command, backend, login, API key, or server runtime is required.
+
+Before using the QR code, configure the repository's GitHub Pages source to GitHub Actions and confirm the Actions deployment succeeds.
 
 Expected final URL pattern:
 
