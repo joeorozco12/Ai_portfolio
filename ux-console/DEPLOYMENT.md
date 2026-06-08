@@ -11,7 +11,7 @@ Publish the `ux-console/` directory as the static site root.
 The printed QR code should point to:
 
 ```text
-https://joeorozco12.github.io/Ai_portfolio/tools
+https://jose-orozco-ai-workflow-console.netlify.app/tools
 ```
 
 The `/tools` route is a static shim that opens `index.html#tools`. Deep links are available for:
@@ -22,13 +22,31 @@ The `/tools` route is a static shim that opens `index.html#tools`. Deep links ar
 - `/tools/design-review`
 - `/tools/evidence`
 
-## GitHub Pages Deploy
+## Netlify Deploy
+
+Netlify should use the root `netlify.toml` file:
+
+```toml
+[build]
+  publish = "ux-console"
+  command = ""
+```
+
+The connected Netlify site should deploy from the Git repository root and publish only `ux-console/`. The `_redirects` file inside `ux-console/` keeps `/tools` and the deep-link routes working.
+
+Expected Netlify URL:
+
+```text
+https://jose-orozco-ai-workflow-console.netlify.app/tools
+```
+
+## GitHub Pages Fallback
 
 Use the repository workflow at `.github/workflows/deploy-ux-console.yml`.
 
 The workflow runs on pushes to `main` and through manual `workflow_dispatch`. It uploads only the `ux-console/` directory as the Pages artifact. No build command, backend, login, API key, or server runtime is required.
 
-Before using the QR code, configure the repository's GitHub Pages source to GitHub Actions and confirm the Actions deployment succeeds.
+Before using GitHub Pages as the fallback QR target, configure the repository's GitHub Pages source to GitHub Actions and confirm the Actions deployment succeeds.
 
 Expected final URL pattern:
 
@@ -56,4 +74,4 @@ https://joeorozco12.github.io/Ai_portfolio/tools
 
 ## QR Evidence
 
-Do not generate final QR evidence until the GitHub Pages URL is live and verified from a phone away from the Mac. Once verified, generate the printed QR code from the final `/tools` URL and capture one phone screenshot as publication evidence.
+Do not generate final QR evidence until the Netlify URL is live and verified from a phone away from the Mac. Once verified, generate the printed QR code from the final `/tools` URL and capture one phone screenshot as publication evidence.

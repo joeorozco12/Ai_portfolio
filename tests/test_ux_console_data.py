@@ -14,6 +14,9 @@ CONSOLE_DATA_PATH = REPO_ROOT / "ux-console" / "data" / "portfolio_workflows.js"
 SCREENSHOT_INDEX_PATH = REPO_ROOT / "Screenshot Index.md"
 DEPLOYMENT_NOTES_PATH = REPO_ROOT / "ux-console" / "DEPLOYMENT.md"
 EXPECTED_PAGES_URL = "https://joeorozco12.github.io/Ai_portfolio/tools"
+EXPECTED_NETLIFY_URL = "https://jose-orozco-ai-workflow-console.netlify.app/tools"
+NETLIFY_TOML_PATH = REPO_ROOT / "netlify.toml"
+REDIRECTS_PATH = REPO_ROOT / "ux-console" / "_redirects"
 CONSOLE_SCREENSHOTS = [
     "ux-console/screenshots/portfolio_overview.png",
     "ux-console/screenshots/project1_requirements_to_verification.png",
@@ -213,20 +216,24 @@ class UXConsoleDataTests(unittest.TestCase):
         self.assertIn("#tools/feasibility", app_js)
         self.assertIn("#tools/requirements", app_js)
 
-    def test_github_pages_deployment_notes_are_static(self):
+    def test_static_deployment_notes_include_netlify_and_pages_fallback(self):
         deployment_notes = DEPLOYMENT_NOTES_PATH.read_text(encoding="utf-8")
+        redirects = REDIRECTS_PATH.read_text(encoding="utf-8")
+        netlify_toml = NETLIFY_TOML_PATH.read_text(encoding="utf-8")
 
         for route_file, hash_route in PUBLIC_ROUTE_FILES:
             route = "/" + route_file.removeprefix("ux-console/").removesuffix("/index.html")
             with self.subTest(route=route):
                 self.assertIn(route, deployment_notes)
+                self.assertIn(route, redirects)
                 self.assertIn(hash_route, (REPO_ROOT / route_file).read_text(encoding="utf-8"))
 
+        self.assertIn("Netlify", deployment_notes)
+        self.assertIn(EXPECTED_NETLIFY_URL, deployment_notes)
         self.assertIn("GitHub Pages", deployment_notes)
         self.assertIn(EXPECTED_PAGES_URL, deployment_notes)
         self.assertNotIn("https://<github-user>.github.io/<repo>/tools", deployment_notes)
-        self.assertIn("uploads only the `ux-console/` directory", deployment_notes)
-        self.assertNotIn("Netlify", deployment_notes)
+        self.assertIn('publish = "ux-console"', netlify_toml)
 
     def write_review_log(self, rows):
         with tempfile.NamedTemporaryFile("w", suffix=".csv", delete=False, encoding="utf-8") as handle:

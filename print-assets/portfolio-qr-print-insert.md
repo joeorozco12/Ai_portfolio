@@ -8,7 +8,13 @@ Publication classification: Needs review
 
 ## QR Target
 
-Verified GitHub Pages URL:
+Primary Netlify URL pending final phone verification:
+
+```text
+https://jose-orozco-ai-workflow-console.netlify.app/tools
+```
+
+Verified GitHub Pages fallback URL:
 
 ```text
 https://joeorozco12.github.io/Ai_portfolio/tools
@@ -33,4 +39,4 @@ https://joeorozco12.github.io/Ai_portfolio/tools
 This insert remains `Needs review` until:
 
 - Jose completes publication wording review.
-- The QR opens `/tools` from a phone camera.
+- The selected final QR target opens `/tools` from a phone camera.
