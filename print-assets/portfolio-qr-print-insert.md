@@ -1,4 +1,4 @@
-# QR Print Insert Template
+# QR Print Insert
 
 [SYNTHETIC — FOR DEMONSTRATION ONLY]
 
@@ -8,7 +8,7 @@ Publication classification: Needs review
 
 ## QR Target
 
-Pending verified GitHub Pages URL:
+Verified GitHub Pages URL:
 
 ```text
 https://joeorozco12.github.io/Ai_portfolio/tools
@@ -18,6 +18,10 @@ https://joeorozco12.github.io/Ai_portfolio/tools
 
 Scan to open the synthetic engineering workflow console
 
+## QR Image
+
+[public-portfolio-qr.svg](public-portfolio-qr.svg)
+
 ## Fallback URL
 
 ```text
@@ -26,9 +30,7 @@ https://joeorozco12.github.io/Ai_portfolio/tools
 
 ## Print Boundary
 
-This is not the final printable insert until:
+This insert remains `Needs review` until:
 
-- GitHub Pages deployment has succeeded.
-- The `/tools` route loads in a clean browser.
-- The QR image is generated from the verified public URL.
 - Jose completes publication wording review.
+- The QR opens `/tools` from a phone camera.

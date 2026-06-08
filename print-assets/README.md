@@ -8,9 +8,9 @@ Publication classification: Needs review
 
 ## Status
 
-Final QR asset pending.
+Final QR asset generated and ready for Jose review.
 
-Do not print a QR code until the GitHub Pages deployment succeeds and the public `/tools` URL opens from a clean browser or phone.
+The GitHub Pages deployment has succeeded, and the public `/tools` route opens over HTTPS. Do not treat the printed asset as approved until Jose completes publication review.
 
 Expected final target:
 
@@ -22,6 +22,10 @@ https://joeorozco12.github.io/Ai_portfolio/tools
 
 Scan to open the synthetic engineering workflow console
 
+## QR Asset
+
+- [public-portfolio-qr.svg](public-portfolio-qr.svg)
+
 ## Fallback URL
 
 Print the final verified URL below the QR code:
@@ -32,11 +36,11 @@ https://joeorozco12.github.io/Ai_portfolio/tools
 
 ## Finalization Checklist
 
-- Configure a GitHub remote for this repository.
-- Push the `main` branch with `.github/workflows/deploy-ux-console.yml`.
-- Confirm the GitHub Pages Actions deployment succeeds.
-- Open `/tools` from a clean browser session.
-- Open `/tools` from a phone before printing.
-- Replace the placeholder URL in [portfolio-qr-print-insert.md](portfolio-qr-print-insert.md).
-- Generate `public-portfolio-qr.svg` or `public-portfolio-qr.png` from the verified URL only.
+- [x] Configure a GitHub remote for this repository.
+- [x] Push the `main` branch with `.github/workflows/deploy-ux-console.yml`.
+- [x] Confirm the GitHub Pages Actions deployment succeeds.
+- [x] Open `/tools` from a clean browser session.
+- [ ] Open `/tools` from a phone before printing.
+- [x] Replace the placeholder URL in [portfolio-qr-print-insert.md](portfolio-qr-print-insert.md).
+- [x] Generate `public-portfolio-qr.svg` from the verified URL only.
 - Keep the printed portfolio artifact at `Needs review` until Jose completes publication review.

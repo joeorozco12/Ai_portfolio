@@ -73,7 +73,7 @@
 - [x] Add QR-ready static UX console under `ux-console/`.
 - [x] Add browser-only synthetic demos for Requirements-to-Verification and Lighting Feasibility.
 - [x] Add evidence dashboards for WCCA Prep, Design Review Readiness, and portfolio evidence.
-- [ ] Add GitHub Pages Actions workflow for `ux-console/`.
-- [ ] Configure GitHub remote and verify the public `/tools` route.
-- [ ] Generate final printed QR asset only after the Pages URL is stable.
+- [x] Add GitHub Pages Actions workflow for `ux-console/`.
+- [x] Configure GitHub remote and verify the public `/tools` route.
+- [x] Generate final printed QR asset only after the Pages URL is stable.
 - [ ] Complete Jose's publication review before changing any artifact status out of `Needs review`.
