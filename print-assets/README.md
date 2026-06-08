@@ -10,15 +10,9 @@ Publication classification: Needs review
 
 Final QR asset generated and ready for Jose review.
 
-The GitHub Pages deployment has succeeded, and the public `/tools` route opens over HTTPS as a fallback. The Netlify target is primary, but the printed QR asset should not be switched to Netlify until the Netlify `/tools` route opens successfully from a phone.
+The GitHub Pages deployment has succeeded, and the public `/tools` route opens over HTTPS. Do not treat the printed asset as approved until Jose completes publication review.
 
-Primary target after Netlify verification:
-
-```text
-https://jose-orozco-ai-workflow-console.netlify.app/tools
-```
-
-Verified fallback target:
+Verified QR target:
 
 ```text
 https://joeorozco12.github.io/Ai_portfolio/tools
@@ -45,10 +39,8 @@ https://joeorozco12.github.io/Ai_portfolio/tools
 - [x] Configure a GitHub remote for this repository.
 - [x] Push the `main` branch with `.github/workflows/deploy-ux-console.yml`.
 - [x] Confirm the GitHub Pages Actions deployment succeeds.
-- [ ] Confirm the Netlify deployment succeeds.
 - [x] Open `/tools` from a clean browser session.
 - [ ] Open `/tools` from a phone before printing.
 - [x] Replace the placeholder URL in [portfolio-qr-print-insert.md](portfolio-qr-print-insert.md).
-- [x] Generate `public-portfolio-qr.svg` from the verified fallback URL.
-- [ ] Regenerate `public-portfolio-qr.svg` from the Netlify URL after Netlify phone verification passes.
+- [x] Generate `public-portfolio-qr.svg` from the verified GitHub Pages URL.
 - Keep the printed portfolio artifact at `Needs review` until Jose completes publication review.

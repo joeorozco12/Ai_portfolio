@@ -14,13 +14,7 @@ Core message: AI accelerates engineering workflow execution. Engineers own final
 
 ## QR Web App
 
-The public static console lives under [ux-console](ux-console). When Netlify is connected to this repository, the primary QR route should be:
-
-```text
-https://jose-orozco-ai-workflow-console.netlify.app/tools
-```
-
-GitHub Pages remains a verified fallback route:
+The public static console lives under [ux-console](ux-console). The QR route is:
 
 ```text
 https://joeorozco12.github.io/Ai_portfolio/tools

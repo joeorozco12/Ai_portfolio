@@ -67,15 +67,13 @@ The default review log is [review/review_log.csv](review/review_log.csv). It is 
 
 ## Publish
 
-The primary publish path is Netlify. The repository root includes `netlify.toml`, which tells Netlify to publish only `ux-console/`:
+Use the repository GitHub Pages workflow:
 
 ```text
-publish = "ux-console"
+.github/workflows/deploy-ux-console.yml
 ```
 
-The QR code should point to the hosted Netlify `/tools` route after the URL and phone verification pass.
-
-The repository also includes a GitHub Pages workflow as a fallback static host.
+The workflow uploads only `ux-console/` as the static Pages artifact. The QR code points to the hosted `/tools` route after the URL and phone verification pass.
 
 ## Screenshot Evidence
 

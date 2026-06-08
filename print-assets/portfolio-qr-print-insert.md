@@ -8,13 +8,7 @@ Publication classification: Needs review
 
 ## QR Target
 
-Primary Netlify URL pending final phone verification:
-
-```text
-https://jose-orozco-ai-workflow-console.netlify.app/tools
-```
-
-Verified GitHub Pages fallback URL:
+Verified GitHub Pages URL:
 
 ```text
 https://joeorozco12.github.io/Ai_portfolio/tools
