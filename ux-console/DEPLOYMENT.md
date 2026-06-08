@@ -11,7 +11,7 @@ Publish the `ux-console/` directory as the static site root.
 The printed QR code should point to:
 
 ```text
-https://<github-user>.github.io/<repo>/tools
+https://joeorozco12.github.io/Ai_portfolio/tools
 ```
 
 The `/tools` route is a static shim that opens `index.html#tools`. Deep links are available for:
@@ -33,7 +33,7 @@ Before using the QR code, configure the repository's GitHub Pages source to GitH
 Expected final URL pattern:
 
 ```text
-https://<github-user>.github.io/<repo>/tools
+https://joeorozco12.github.io/Ai_portfolio/tools
 ```
 
 ## Public Demo Boundary

@@ -13,6 +13,7 @@ REVIEW_LOG_PATH = REPO_ROOT / "ux-console" / "review" / "review_log.csv"
 CONSOLE_DATA_PATH = REPO_ROOT / "ux-console" / "data" / "portfolio_workflows.js"
 SCREENSHOT_INDEX_PATH = REPO_ROOT / "Screenshot Index.md"
 DEPLOYMENT_NOTES_PATH = REPO_ROOT / "ux-console" / "DEPLOYMENT.md"
+EXPECTED_PAGES_URL = "https://joeorozco12.github.io/Ai_portfolio/tools"
 CONSOLE_SCREENSHOTS = [
     "ux-console/screenshots/portfolio_overview.png",
     "ux-console/screenshots/project1_requirements_to_verification.png",
@@ -222,7 +223,8 @@ class UXConsoleDataTests(unittest.TestCase):
                 self.assertIn(hash_route, (REPO_ROOT / route_file).read_text(encoding="utf-8"))
 
         self.assertIn("GitHub Pages", deployment_notes)
-        self.assertIn("https://<github-user>.github.io/<repo>/tools", deployment_notes)
+        self.assertIn(EXPECTED_PAGES_URL, deployment_notes)
+        self.assertNotIn("https://<github-user>.github.io/<repo>/tools", deployment_notes)
         self.assertIn("uploads only the `ux-console/` directory", deployment_notes)
         self.assertNotIn("Netlify", deployment_notes)
 

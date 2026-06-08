@@ -62,7 +62,7 @@ Static site root: `ux-console/`
 QR route after GitHub Pages deployment:
 
 ```text
-https://<github-user>.github.io/<repo>/tools
+https://joeorozco12.github.io/Ai_portfolio/tools
 ```
 
 Deep links:

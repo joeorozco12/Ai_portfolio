@@ -15,7 +15,7 @@ Do not print a QR code until the GitHub Pages deployment succeeds and the public
 Expected final target:
 
 ```text
-https://<github-user>.github.io/<repo>/tools
+https://joeorozco12.github.io/Ai_portfolio/tools
 ```
 
 ## Printed Caption
@@ -27,7 +27,7 @@ Scan to open the synthetic engineering workflow console
 Print the final verified URL below the QR code:
 
 ```text
-https://<github-user>.github.io/<repo>/tools
+https://joeorozco12.github.io/Ai_portfolio/tools
 ```
 
 ## Finalization Checklist

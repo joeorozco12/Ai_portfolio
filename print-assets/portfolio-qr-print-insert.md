@@ -11,7 +11,7 @@ Publication classification: Needs review
 Pending verified GitHub Pages URL:
 
 ```text
-https://<github-user>.github.io/<repo>/tools
+https://joeorozco12.github.io/Ai_portfolio/tools
 ```
 
 ## Caption
@@ -21,7 +21,7 @@ Scan to open the synthetic engineering workflow console
 ## Fallback URL
 
 ```text
-https://<github-user>.github.io/<repo>/tools
+https://joeorozco12.github.io/Ai_portfolio/tools
 ```
 
 ## Print Boundary
