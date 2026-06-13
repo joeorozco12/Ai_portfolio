@@ -224,6 +224,13 @@ class UXConsoleDataTests(unittest.TestCase):
         self.assertIn("/Ai_portfolio/index.html#tools", fallback)
         self.assertIn("window.location.replace", fallback)
 
+    def test_public_artifact_links_stay_inside_pages_or_repo(self):
+        app_js = (REPO_ROOT / "ux-console" / "app.js").read_text(encoding="utf-8")
+
+        self.assertIn("github.com/joeorozco12/Ai_portfolio/blob/main", app_js)
+        self.assertIn('safePath.startsWith("ux-console/")', app_js)
+        self.assertNotIn("return `../${encodeURI(path)", app_js)
+
     def test_browser_demo_hooks_exist(self):
         app_js = (REPO_ROOT / "ux-console" / "app.js").read_text(encoding="utf-8")
 

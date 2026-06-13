@@ -146,7 +146,12 @@ SYN-REQ-005,Synthetic spec,The output report shall separate assumptions from ver
   }
 
   function artifactHref(path) {
-    return `../${encodeURI(path).replace(/#/g, "%23")}`;
+    const safePath = String(path || "").replace(/^\/+/, "");
+    const encodedPath = encodeURI(safePath).replace(/#/g, "%23");
+    if (safePath.startsWith("ux-console/")) {
+      return encodedPath.replace(/^ux-console\//, "");
+    }
+    return `https://github.com/joeorozco12/Ai_portfolio/blob/main/${encodedPath}`;
   }
 
   function getReviewStates() {
