@@ -75,6 +75,14 @@ Use the repository GitHub Pages workflow:
 
 The workflow uploads only `ux-console/` as the static Pages artifact. The QR code points to the hosted `/tools` route after the URL and phone verification pass.
 
+GitHub Pages should be configured with:
+
+```text
+Settings -> Pages -> Build and deployment -> Source -> GitHub Actions
+```
+
+Do not publish from `main / root` or `main / docs`; those folders are not the public static site artifact.
+
 ## Screenshot Evidence
 
 Console screenshots are stored in [screenshots](screenshots). They are portfolio evidence only; generated labels may retain `Needs review` to preserve the human-review boundary.

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Portfolio Route Redirect</title>
+    <script>
+      (function () {
+        "use strict";
+        var repositoryPath = "/Ai_portfolio";
+        var relativePath = window.location.pathname;
+        if (relativePath.indexOf(repositoryPath) === 0) {
+          relativePath = relativePath.slice(repositoryPath.length);
+        }
+        relativePath = relativePath.replace(/\/+$/, "");
+
+        var hashRoute = "tools";
+        if (relativePath.indexOf("/tools/") === 0) {
+          hashRoute = relativePath.slice(1);
+        } else if (relativePath === "/tools") {
+          hashRoute = "tools";
+        }
+
+        window.location.replace(repositoryPath + "/index.html#" + hashRoute);
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p>[SYNTHETIC — FOR DEMONSTRATION ONLY]</p>
+      <p>Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.</p>
+      <p><a href="/Ai_portfolio/index.html#tools">Open the portfolio tools</a></p>
+    </main>
+  </body>
+</html>

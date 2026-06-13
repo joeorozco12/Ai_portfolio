@@ -13,6 +13,8 @@ REVIEW_LOG_PATH = REPO_ROOT / "ux-console" / "review" / "review_log.csv"
 CONSOLE_DATA_PATH = REPO_ROOT / "ux-console" / "data" / "portfolio_workflows.js"
 SCREENSHOT_INDEX_PATH = REPO_ROOT / "Screenshot Index.md"
 DEPLOYMENT_NOTES_PATH = REPO_ROOT / "ux-console" / "DEPLOYMENT.md"
+PAGES_NOJEKYLL_PATH = REPO_ROOT / "ux-console" / ".nojekyll"
+PAGES_404_PATH = REPO_ROOT / "ux-console" / "404.html"
 EXPECTED_PAGES_URL = "https://joeorozco12.github.io/Ai_portfolio/tools"
 CONSOLE_SCREENSHOTS = [
     "ux-console/screenshots/portfolio_overview.png",
@@ -211,6 +213,16 @@ class UXConsoleDataTests(unittest.TestCase):
                 content = (REPO_ROOT / route_file).read_text(encoding="utf-8")
                 self.assertIn(hash_route, content)
                 self.assertIn("index.html", content)
+                self.assertIn("canonical", content)
+
+    def test_pages_artifact_has_static_route_fallbacks(self):
+        self.assertTrue(PAGES_NOJEKYLL_PATH.exists())
+
+        fallback = PAGES_404_PATH.read_text(encoding="utf-8")
+        self.assertIn(self.generator.SYNTHETIC_LABEL, fallback)
+        self.assertIn("Human Review Required", fallback)
+        self.assertIn("/Ai_portfolio/index.html#tools", fallback)
+        self.assertIn("window.location.replace", fallback)
 
     def test_browser_demo_hooks_exist(self):
         app_js = (REPO_ROOT / "ux-console" / "app.js").read_text(encoding="utf-8")
@@ -231,6 +243,8 @@ class UXConsoleDataTests(unittest.TestCase):
                 self.assertIn(hash_route, (REPO_ROOT / route_file).read_text(encoding="utf-8"))
 
         self.assertIn("GitHub Pages", deployment_notes)
+        self.assertIn("Source -> GitHub Actions", deployment_notes)
+        self.assertIn("Do not select `Deploy from a branch`", deployment_notes)
         self.assertIn(EXPECTED_PAGES_URL, deployment_notes)
         self.assertNotIn("https://<github-user>.github.io/<repo>/tools", deployment_notes)
         self.assertNotIn("Netlify", deployment_notes)

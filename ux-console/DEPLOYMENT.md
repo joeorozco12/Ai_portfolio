@@ -8,6 +8,8 @@
 
 Publish the `ux-console/` directory as the static site root.
 
+Do not use the repository root or `/docs` as the Pages source. The root contains source-pack documentation and deterministic tool code, while the public static site is the dependency-free console artifact in `ux-console/`.
+
 The printed QR code should point to:
 
 ```text
@@ -22,6 +24,8 @@ The `/tools` route is a static shim that opens `index.html#tools`. Deep links ar
 - `/tools/design-review`
 - `/tools/evidence`
 
+The artifact also includes `.nojekyll` and a `404.html` fallback so GitHub Pages serves the static files directly and unexpected direct routes fall back to the tools console without exposing source-pack files.
+
 ## GitHub Pages Deploy
 
 Use the repository workflow at `.github/workflows/deploy-ux-console.yml`.
@@ -29,6 +33,14 @@ Use the repository workflow at `.github/workflows/deploy-ux-console.yml`.
 The workflow runs on pushes to `main` and through manual `workflow_dispatch`. It uploads only the `ux-console/` directory as the Pages artifact. No build command, backend, login, API key, or server runtime is required.
 
 Before using the QR code, configure the repository's GitHub Pages source to GitHub Actions and confirm the Actions deployment succeeds.
+
+Exact GitHub setting:
+
+```text
+Settings -> Pages -> Build and deployment -> Source -> GitHub Actions
+```
+
+Do not select `Deploy from a branch`, `main / root`, or `main / docs` for this repository.
 
 Expected final URL pattern:
 
