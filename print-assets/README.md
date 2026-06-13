@@ -24,6 +24,7 @@ Scan to open the synthetic engineering workflow console
 
 ## QR Asset
 
+- [public-portfolio-qr-final.png](public-portfolio-qr-final.png)
 - [public-portfolio-qr.svg](public-portfolio-qr.svg)
 
 ## Fallback URL
@@ -42,5 +43,6 @@ https://joeorozco12.github.io/Ai_portfolio/tools
 - [x] Open `/tools` from a clean browser session.
 - [ ] Open `/tools` from a phone before printing.
 - [x] Replace the placeholder URL in [portfolio-qr-print-insert.md](portfolio-qr-print-insert.md).
-- [x] Generate `public-portfolio-qr.svg` from the verified GitHub Pages URL.
+- [x] Generate `public-portfolio-qr-final.png` from the verified GitHub Pages URL.
+- [x] Preserve `public-portfolio-qr.svg` as the vector QR companion.
 - Keep the printed portfolio artifact at `Needs review` until Jose completes publication review.

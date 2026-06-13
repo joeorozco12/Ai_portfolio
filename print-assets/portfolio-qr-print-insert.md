@@ -20,7 +20,9 @@ Scan to open the synthetic engineering workflow console
 
 ## QR Image
 
-[public-portfolio-qr.svg](public-portfolio-qr.svg)
+[public-portfolio-qr-final.png](public-portfolio-qr-final.png)
+
+Vector companion: [public-portfolio-qr.svg](public-portfolio-qr.svg)
 
 ## Fallback URL
 
