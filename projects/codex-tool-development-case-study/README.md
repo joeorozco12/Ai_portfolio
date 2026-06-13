@@ -6,7 +6,7 @@
 
 ## Publication Classification
 
-Needs review
+Safe to publish
 
 ## Problem
 
@@ -105,9 +105,10 @@ Jose defines the engineering workflow problem, constrains the data boundary, rev
 ## Proof Gaps
 
 - Captures are synthetic Markdown captures rather than live IDE or terminal screenshots.
-- Final public copy still needs qualified review.
+- Some generated or captured artifacts may retain `Needs review` markers to preserve the human-review boundary.
 - No live walkthrough capture is included yet.
+- Future public-copy, screenshot, or workflow-template changes require another review pass.
 
 ## Safe to Publish Status
 
-Needs review. The case study uses synthetic content, but screenshots and final public wording still need qualified review before publication.
+Safe to publish for synthetic portfolio demonstration. The case study uses synthetic content and final public wording has been reviewed; captures remain synthetic Markdown evidence rather than live IDE or terminal screenshots.

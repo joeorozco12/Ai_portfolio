@@ -4,7 +4,7 @@
 
 > Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
 
-Publication classification: Needs review
+Publication classification: Safe to publish
 
 ## Interview Demo Target
 
@@ -18,8 +18,8 @@ This file is the source of truth for the interview-ready local demo plus the QR-
 |---|---|---|---|---|
 | 1 | Requirements-to-Verification Tool | `python3 tools/requirements_to_verification.py --input "Synthetic Requirements Sample.csv" --output projects/requirements-to-verification/generated_outputs` | Trace matrix, ambiguity report, assumptions register, review checklist, capture previews | Ready for local demo after regeneration and review |
 | 2 | LED Datasheet-to-Model Extractor | `cd projects/wcca-prep-tool/datasheet-plot-digitizer && python3 run_demo.py` | Digitized curve CSV, metadata JSON, Python/MATLAB lookup files, overlay PNG, extraction report | Deterministic extractor evidence ready; Streamlit UI remains unverified |
-| 3 | Lighting Feasibility Mini-Simulator | `cd projects/lighting-feasibility-mini-simulator && python3 feasibility_engine.py` | Feasibility summary, plots, sensitivity sweeps, Project 6 reviewed-input boundary | Ready for local demo after equation review remains visibly pending |
-| 4 | AI-Assisted WCCA Prep Tool | `cd projects/wcca-prep-tool && python3 -m wcca_prep.cli` | WCCA report, summary CSV, plot gallery, missing-data warnings, equation checklist | Ready for local demo after formulas remain clearly review-required |
+| 3 | Lighting Feasibility Mini-Simulator | `cd projects/lighting-feasibility-mini-simulator && python3 feasibility_engine.py` | Feasibility summary, plots, sensitivity sweeps, Project 6 reviewed-input boundary | Ready for local demo; equations and sensitivity ranges reviewed for synthetic portfolio use |
+| 4 | AI-Assisted WCCA Prep Tool | `cd projects/wcca-prep-tool && python3 -m wcca_prep.cli` | WCCA report, summary CSV, plot gallery, missing-data warnings, equation checklist | Ready for local demo; formula and threshold review completed for synthetic portfolio use |
 | 5 | Design Review Readiness Assistant | `cd projects/design-review-readiness-assistant && python3 demo_project4.py` | Review packet, risk register, mode-to-test matrix, diagnostic table, generated screenshots | Ready for local demo |
 | 6 | Codex Tool Development Case Study | Manual walkthrough of `projects/codex-tool-development-case-study/` | Prompt, scope, validation, and human-review capture artifacts | Ready after capture checklist review |
 
@@ -80,7 +80,7 @@ The console provides live browser-only synthetic demos for Requirements-to-Verif
 | Tool | Inputs | Outputs | Captures / Screenshots | Human Review Gate |
 |---|---|---|---|---|
 | Project 1 Requirements-to-Verification | `Synthetic Requirements Sample.csv` | `projects/requirements-to-verification/generated_outputs/` | `projects/requirements-to-verification/captures/` | Requirement interpretation, verification mappings, ambiguity findings, assumptions |
-| Project 6 LED Datasheet-to-Model Extractor | Synthetic curve points and demo projects | `projects/wcca-prep-tool/datasheet-plot-digitizer/outputs/` and `exports/demo_export_package/` | Overlay PNG plus Streamlit mock capture | Axis calibration, point picks, fit quality, downstream-use review gate |
+| Project 6 LED Datasheet-to-Model Extractor | Synthetic curve points and demo projects | `projects/wcca-prep-tool/datasheet-plot-digitizer/outputs/` and `exports/demo_export_package/` | Overlay PNG plus Streamlit mock capture only; no browser-verified UI screenshot yet | Axis calibration, point picks, fit quality, downstream-use review gate |
 | Project 5 Lighting Feasibility Mini-Simulator | `projects/lighting-feasibility-mini-simulator/data/synthetic_lighting_cases.csv` | `outputs/feasibility_summary.*`, plots, and sensitivity sweeps | `outputs/screenshots/portfolio_capture_summary.md` plus plot PNGs | Equation set, thresholds, sensitivity ranges, screening interpretation |
 | Project 2 WCCA Prep Tool | `projects/wcca-prep-tool/data/` CSV files | WCCA report, summary CSV, missing-data warnings, plot gallery | `projects/wcca-prep-tool/captures/` plus plot PNGs | Formulas, units, tolerance assumptions, derating thresholds |
 | Project 4 Design Review Readiness Assistant | `inputs/synthetic_lighting_review_notes.md` | Review packet, risk register, assumptions, validation gaps, matrices | `projects/design-review-readiness-assistant/screenshots/` | Risk labels, readiness language, reviewer disposition, validation gaps |
@@ -98,14 +98,14 @@ The console provides live browser-only synthetic demos for Requirements-to-Verif
 
 ## Remaining Proof Gaps
 
-- All projects remain `Needs review` until Jose completes a qualified engineering and publication review pass.
-- Project 1 now has enough synthetic row coverage for the interview demo, but reviewer disposition fields remain placeholders.
-- Project 2 formulas and WCCA assumptions still need checklist completion.
+- Jose completed the qualified synthetic portfolio review pass on 2026-06-13. Generated outputs may still show `Needs review` labels because they remain decision-support artifacts.
+- Project 1 now has enough synthetic row coverage for the interview demo; keep reviewer disposition records separate from generated outputs.
+- Project 2 formulas and WCCA assumptions have completed checklist review for synthetic portfolio use.
 - Project 3 captures are synthetic Markdown captures, not live screenshots.
-- Project 5 equations and thresholds are first-pass screening examples only.
+- Project 5 equations, thresholds, and sensitivity ranges are reviewed first-pass screening examples only.
 - Project 6 is represented by the deterministic LED Datasheet Curve Studio / LED Datasheet-to-Model Extractor evidence. The old AI Studio Bridge demo should stay secondary or appendix-only.
 - The GitHub Pages workflow still needs a configured GitHub remote and successful Actions deployment before final QR generation.
 
 ## Safe To Publish Status
 
-Needs review. The demo package and static console use synthetic examples only, but final publication and QR use require a successful GitHub Pages deployment plus qualified review.
+Safe to publish for synthetic portfolio demonstration. The demo package and static console use synthetic examples only; final QR use still requires a successful GitHub Pages deployment and clean-browser verification.

@@ -110,11 +110,19 @@ class UXConsoleDataTests(unittest.TestCase):
 
         self.assertEqual(errors, [])
 
-    def test_review_log_template_has_required_fields(self):
+    def test_review_log_has_required_fields_and_review_records(self):
         fieldnames, rows = self.validator.read_review_log(REVIEW_LOG_PATH)
 
         self.assertEqual(fieldnames, self.validator.REQUIRED_FIELDS)
-        self.assertEqual(rows, [])
+        self.assertGreaterEqual(len(rows), 4)
+        for row in rows:
+            self.assertEqual(row["new_state"], "Safe to publish")
+            self.assertTrue(row["reviewer_role"])
+            self.assertTrue(row["review_note"])
+            self.assertEqual(
+                self.validator.parse_publication_check(row["publication_check"]),
+                self.validator.PUBLICATION_CHECKS,
+            )
 
     def test_review_log_template_validates(self):
         errors = self.validator.validate_review_log(REVIEW_LOG_PATH, CONSOLE_DATA_PATH)

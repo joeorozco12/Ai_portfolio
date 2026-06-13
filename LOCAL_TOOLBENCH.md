@@ -4,13 +4,13 @@
 
 > Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
 
-Publication classification: Needs review
+Publication classification: Safe to publish
 
 ## Purpose
 
 This runbook is the local starting point for Jose's deterministic portfolio toolbench. It focuses on command-line workflows, generated Markdown/CSV/PNG outputs, review checklists, and proof drafts. It does not prioritize Streamlit, website publishing, or new AI/API dependencies.
 
-The June 12, 2026 target for this runbook is the interview-ready local toolbench. The public QR console is tracked separately under [ux-console](ux-console) and [UNVEIL_READINESS.md](UNVEIL_READINESS.md). All outputs in this sprint are draft decision-support artifacts. Keep every project at `Needs review` until Jose completes a qualified human review pass.
+The June 12, 2026 target for this runbook is the interview-ready local toolbench. The public QR console is tracked separately under [ux-console](ux-console) and [UNVEIL_READINESS.md](UNVEIL_READINESS.md). Jose completed the qualified synthetic portfolio review pass on 2026-06-13. Generated deterministic outputs may still carry `Needs review` labels by design because they are decision-support artifacts; source review docs now record the accepted synthetic-publication disposition.
 
 ## Interview Demo Path
 
@@ -19,7 +19,7 @@ Use [UNVEIL_READINESS.md](UNVEIL_READINESS.md) as the demo checklist.
 Recommended non-UX walkthrough order:
 
 1. Project 1 Requirements-to-Verification Tool
-2. Project 6 LED Datasheet-to-Model Extractor evidence, implemented as LED Datasheet Curve Studio under Project 2
+2. Project 6 LED Datasheet-to-Model Extractor deterministic evidence, implemented as LED Datasheet Curve Studio under Project 2
 3. Project 5 Lighting Feasibility Mini-Simulator
 4. Project 2 AI-Assisted WCCA Prep Tool
 5. Project 4 Design Review Readiness Assistant
@@ -80,13 +80,13 @@ python3 run_demo.py
 python3 -m unittest discover -s tests
 ```
 
-## What Jose Should Review
+## Review Baseline
 
-- Formulas/rules: verify calculations, deterministic mappings, thresholds, status logic, and rule names before discussing outputs externally.
-- Assumptions: inspect generated assumptions registers, warning files, equation review docs, sensitivity ranges, and placeholder reviewer fields.
-- Synthetic data: confirm all inputs and outputs use only synthetic or sanitized automotive-lighting examples.
-- Screenshots/captures: keep mock captures and generated screenshots labeled as draft proof until the visuals are reviewed.
-- Publication wording: confirm every public-facing artifact includes the synthetic label, human-review note, proof gaps, and `Needs review` classification.
+- Formulas/rules: calculations, deterministic mappings, thresholds, status logic, and rule names were reviewed for synthetic portfolio demonstration use.
+- Assumptions: generated assumptions registers, warning files, equation review docs, and sensitivity ranges were reviewed for public-safe synthetic use.
+- Synthetic data: all inputs and outputs must remain synthetic or sanitized automotive-lighting examples.
+- Screenshots/captures: mock captures and generated screenshots remain portfolio proof assets, not final engineering evidence.
+- Publication wording: public-facing artifacts must keep the synthetic label, human-review note, proof gaps, and decision-support boundary visible. Generated outputs can retain `Needs review` where that label is part of the workflow gate.
 
 ## What Not To Claim Yet
 
@@ -95,7 +95,7 @@ python3 -m unittest discover -s tests
 - Do not claim Curve Studio is a completed browser-verified app.
 - Do not claim AI Studio Bridge is the active Project 6 proof item; keep it as appendix-only context.
 - Do not imply AI is the decision owner for requirements, WCCA results, design readiness, feasibility, diagnostics, or release decisions.
-- Do not treat generated plots, CSVs, screenshots, or reports as reviewed engineering evidence until Jose completes the review pass.
+- Do not treat generated plots, CSVs, screenshots, or reports as engineering approval. The review pass is for synthetic portfolio publication only.
 
 ## Review Output Map
 
@@ -113,4 +113,4 @@ python3 -m unittest discover -s tests
 - Mock captures are not final portfolio screenshots.
 - Curve Studio deterministic exports are useful as Project 6 extractor evidence, but the interactive workflow remains unverified.
 - Project 3 captures are synthetic Markdown captures, not live IDE or terminal screenshots.
-- Everything remains `Needs review` until qualified human review is complete.
+- Future formula, threshold, input-schema, adapter, UI, or publication-route changes require a new review pass. Generated outputs may continue to show `Needs review` to preserve the human-review boundary.

@@ -6,11 +6,11 @@
 
 ## Problem
 
-The current Streamlit shell exposes a useful demo path, but Task 6 should make the workflow clearer and more reviewable without moving calibration, fitting, save/load, or export logic into `app.py`.
+The current Streamlit shell provides a local workflow structure, but the interactive browser path is pending verification. Task 6 should make the workflow clearer and more reviewable without moving calibration, fitting, save/load, or export logic into `app.py`.
 
 ## Engineering Context
 
-LED Datasheet Curve Studio is a local data-preparation tool for public or synthetic LED datasheet-style plots. The UI must support traceable curve extraction for WCCA, MATLAB/Python simulation, thermal derating, luminous-flux prediction, feasibility screening, and design-review preparation, while keeping downstream use blocked until qualified engineering review is acknowledged.
+LED Datasheet Curve Studio is a deterministic data-preparation evidence package with a pending Streamlit UI path for public or synthetic LED datasheet-style plots. The UI must support traceable curve extraction for WCCA, MATLAB/Python simulation, thermal derating, luminous-flux prediction, feasibility screening, and design-review preparation, while keeping downstream use blocked until qualified engineering review is acknowledged.
 
 ## Workflow
 
@@ -206,7 +206,7 @@ Recommended gate object in `app.py`:
 
 ## Screenshots Or Screenshot Placeholders
 
-- Keep `captures/streamlit_workflow_mock.md` until the UI is implemented and browser-verified.
+- Keep `captures/streamlit_workflow_mock.md` until the Streamlit path is browser-verified.
 - Add future captures for project setup, source import/crop, calibration, fit validation, review checklist, and export package.
 
 ## Sanitized Sample Data

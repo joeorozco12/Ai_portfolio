@@ -6,7 +6,7 @@
 
 ## Mission
 
-This folder contains LED Datasheet Curve Studio, a local Streamlit engineering tool that converts public or synthetic LED datasheet plots into calibrated, reviewable curve data packages for WCCA, MATLAB/Python simulation, thermal derating, luminous-flux prediction, and design-review preparation.
+This folder contains LED Datasheet Curve Studio, the deterministic Project 6 evidence package plus a local Streamlit workflow shell. The tested path converts synthetic/public-safe curve records into calibrated, reviewable data packages for WCCA, MATLAB/Python simulation, thermal derating, luminous-flux prediction, and design-review preparation. The interactive Streamlit/browser path remains pending verification.
 
 ## Scope
 
@@ -15,7 +15,7 @@ Work only inside `projects/wcca-prep-tool/datasheet-plot-digitizer` unless the u
 Allowed project areas:
 
 - `led_digitizer/` for deterministic project model, calibration, extraction, curve fitting, validation, export, and report logic.
-- `app.py` for the Streamlit workflow shell only.
+- `app.py` for the Streamlit workflow shell only; do not describe it as browser-verified until runtime QA has been completed.
 - `data/synthetic/` and `data/demo_projects/` for synthetic demo inputs.
 - `exports/`, `outputs/`, and `captures/` for generated demo artifacts.
 - `tests/` for focused unit tests.

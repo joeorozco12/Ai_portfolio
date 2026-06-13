@@ -42,18 +42,18 @@ https://joeorozco12.github.io/Ai_portfolio/tools
 - No backend is required.
 - No API keys are used.
 - No real employer, customer, supplier, program, part, validation, ticket, file-path, or internal-document data should be pasted into the demos.
-- All outputs remain `Needs review`.
+- Generated outputs may retain `Needs review` labels; the separate review log records synthetic-publication disposition.
 
 ## Pre-QR Checklist
 
 - Open `/tools` from a clean browser session.
 - Test phone and laptop viewports.
 - Confirm the synthetic/demo label and human-review note are visible.
-- Confirm `Safe to publish` is not available from the UI.
+- Confirm the UI does not offer a direct `Safe to publish` override for generated engineering outputs.
 - Confirm both browser demos run and JSON download works.
 - Confirm the final URL is public HTTPS and does not contain `localhost`, `127.0.0.1`, or `192.168`.
 - Generate the QR code only after the public URL is stable.
 
 ## QR Evidence
 
-Do not treat final QR evidence as reviewed until the GitHub Pages `/tools` URL opens from a phone camera and Jose completes publication review.
+Content review for synthetic portfolio use was completed on 2026-06-13. Final QR evidence still requires the GitHub Pages `/tools` URL to open from a phone camera and a clean browser.

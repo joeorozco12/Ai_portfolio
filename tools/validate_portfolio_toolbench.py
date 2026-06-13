@@ -91,6 +91,7 @@ REQUIRED_TEXT_ARTIFACTS = [
     "projects/requirements-to-verification/generated_outputs/ambiguity_report.md",
     "projects/requirements-to-verification/generated_outputs/assumptions_register.md",
     "projects/requirements-to-verification/generated_outputs/review_checklist.md",
+    "projects/requirements-to-verification/generated_outputs/review_disposition.md",
     "projects/requirements-to-verification/generated_outputs/run_summary.md",
     "projects/requirements-to-verification/generated_outputs/trace_matrix.csv",
     "projects/requirements-to-verification/generated_outputs/ambiguity_report.csv",

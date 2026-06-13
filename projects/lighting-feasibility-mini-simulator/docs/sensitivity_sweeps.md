@@ -10,6 +10,16 @@ Task 5C adds deterministic sensitivity sweeps to the Lighting Feasibility Mini-S
 
 The sweeps support engineering investigation only. They do not approve engineering decisions, release designs, or replace detailed electrical, thermal, optical, EMC, durability, or safety analysis.
 
+## Review Disposition
+
+| Field | Entry |
+|---|---|
+| Reviewer name | Jose Orozco |
+| Review date | 2026-06-13 |
+| Review status | Accepted for synthetic portfolio use |
+| Review basis | Sweep variables, synthetic ranges, optical-efficiency proxy, limitations, output list, and publication wording reviewed for public-safe demonstration use. |
+| Boundary | Sweeps remain one-variable-at-a-time investigation aids and do not represent final engineering judgment. |
+
 ## Variables Swept
 
 | Sweep | Variable | Units | Engine Behavior |
@@ -72,12 +82,12 @@ Generated files:
 
 ## Human Review Requirements
 
-- Review all sweep ranges before public use.
-- Review all thresholds and status rules before presenting results externally.
-- Confirm every row, plot, and summary remains synthetic and sanitized.
-- Confirm the optical-efficiency proxy is described as a simplified investigation input.
-- Confirm no result is described as engineering approval.
+- Sweep ranges have been reviewed for synthetic portfolio use.
+- Thresholds and status rules have been reviewed as demonstration values only.
+- Every row, plot, and summary must remain synthetic and sanitized.
+- The optical-efficiency proxy must remain described as a simplified investigation input.
+- No result may be described as engineering approval.
 
 ## Safe To Publish Status
 
-Needs review. The sweep outputs use synthetic data only, but ranges, thresholds, and interpretation require qualified engineering review before publication.
+Safe to publish for synthetic portfolio demonstration. The sweep outputs use synthetic data only, and the ranges, thresholds, and interpretation have been reviewed for demo use.

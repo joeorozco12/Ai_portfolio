@@ -8,7 +8,7 @@ Publication classification: Needs review
 
 ## Project Role
 
-This is the active Project 6 framing for the June 12, 2026 interview package and QR console evidence. The implemented evidence lives in [projects/wcca-prep-tool/datasheet-plot-digitizer](projects/wcca-prep-tool/datasheet-plot-digitizer) as LED Datasheet Curve Studio.
+This is the active Project 6 framing for the June 12, 2026 interview package and QR console evidence. The deterministic evidence lives in [projects/wcca-prep-tool/datasheet-plot-digitizer](projects/wcca-prep-tool/datasheet-plot-digitizer) as LED Datasheet Curve Studio.
 
 The old `AI Studio Engineering Bridge Demo` is appendix-only context. It should not be presented as the main Project 6 proof item.
 
@@ -18,7 +18,9 @@ LED datasheet plots often need to become structured model inputs before they can
 
 ## Engineering Context
 
-This project uses synthetic LED datasheet-style curves only. It demonstrates the workflow pattern for converting reviewed curve points into traceable model artifacts. It does not use proprietary datasheets, supplier part numbers, customer data, internal requirements, schematics, BOMs, validation results, cost data, file paths, ticket numbers, or program identifiers.
+This project uses synthetic LED datasheet-style curves only. It demonstrates the workflow pattern for converting review-controlled curve points into traceable model artifacts. It does not use proprietary datasheets, supplier part numbers, customer data, internal requirements, schematics, BOMs, validation results, cost data, file paths, ticket numbers, or program identifiers.
+
+Deterministic evidence is ready for synthetic portfolio discussion. The interactive Streamlit/browser path is pending verification and should not be described as complete, deployed, or browser-verified.
 
 ## Workflow
 
@@ -48,6 +50,8 @@ This project uses synthetic LED datasheet-style curves only. It demonstrates the
 
 - `projects/wcca-prep-tool/datasheet-plot-digitizer/outputs/overlay_forward_voltage_vs_current.png`
 - `projects/wcca-prep-tool/datasheet-plot-digitizer/captures/streamlit_workflow_mock.md`
+
+The Streamlit capture is a placeholder only. It is not browser-verified screenshot evidence.
 
 ## Human Review Controls
 
@@ -94,4 +98,4 @@ Jose defines the LED datasheet-to-model workflow, downstream WCCA/feasibility us
 
 ## Safe To Publish Status
 
-Needs review. The evidence is synthetic and ready for local interview discussion, but final publication and engineering claims require qualified review.
+Needs review. The deterministic evidence is synthetic and ready for local interview discussion as decision-support only. The interactive Streamlit path, downstream adapters, and any engineering use still require verification and qualified engineer review.

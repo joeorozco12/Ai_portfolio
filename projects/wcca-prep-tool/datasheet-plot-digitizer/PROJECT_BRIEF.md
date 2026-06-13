@@ -10,7 +10,7 @@ LED datasheet plots often encode forward voltage, current, temperature, luminous
 
 ## Engineering Context
 
-LED Datasheet Curve Studio is a supporting data-preparation tool under the AI-Assisted WCCA Prep Tool. It converts public or synthetic LED datasheet plots into calibrated, reviewable curve data packages for WCCA, MATLAB/Python simulation, thermal derating, luminous-flux prediction, lighting-feasibility screening, and design-review preparation.
+LED Datasheet Curve Studio is a supporting data-preparation tool under the AI-Assisted WCCA Prep Tool and the deterministic evidence package for Project 6. The tested path converts synthetic/public-safe curve records and source-pixel metadata into calibrated, reviewable data packages for WCCA, MATLAB/Python simulation, thermal derating, luminous-flux prediction, lighting-feasibility screening, and design-review preparation. The interactive Streamlit/browser path is pending verification and should not be presented as complete.
 
 The tool is a data-preparation and review-support workflow, not a standalone AI demo. It does not approve LED design values, WCCA conclusions, thermal limits, optical predictions, feasibility conclusions, or release decisions.
 
@@ -18,7 +18,7 @@ The tool is a data-preparation and review-support workflow, not a standalone AI 
 
 1. Start a synthetic or public LED datasheet-plot project.
 2. Store project metadata, source metadata, target curve definitions, assumptions, and review status in `.ledcurve.json`.
-3. Use reusable synthetic seed projects or import a public/synthetic PDF or image source in the UI shell.
+3. Use reusable synthetic seed projects in the deterministic path; public/synthetic PDF or image import remains part of the pending Streamlit/browser workflow.
 4. Select or record the plot region.
 5. Calibrate x and y axes from known reference points.
 6. Extract curve points manually first, with optional draft assisted candidates kept behind review controls.
@@ -28,7 +28,7 @@ The tool is a data-preparation and review-support workflow, not a standalone AI 
 
 ## Inputs
 
-- Public or synthetic LED datasheet PDF/image source
+- Synthetic point tables, synthetic demo projects, or public/synthetic source metadata
 - Source page, source section, and plot-region metadata
 - Curve name and intended downstream use
 - X-axis and y-axis labels, units, scale type, and calibration points
@@ -118,9 +118,9 @@ Jose defines the automotive lighting workflow, WCCA and feasibility boundaries, 
 
 ## Next Improvements
 
-- Build a clearer Streamlit workflow UI.
+- Verify the interactive Streamlit workflow UI in a browser after runtime dependencies are installed.
 - Integrate the full validation report into generated review packages and the Streamlit review screen.
-- Add browser-verified screenshots after runtime dependencies are installed.
+- Add browser-verified screenshots only after the Streamlit layout and export gates are reviewed.
 - Wire draft assisted extraction preview into the UI only after manual review controls are browser-verified.
 - Add reviewed downstream adapters for WCCA and lighting-feasibility inputs.
 - Replace mock captures with reviewed screenshots.
@@ -128,6 +128,7 @@ Jose defines the automotive lighting workflow, WCCA and feasibility boundaries, 
 ## Proof Gaps
 
 - Current assets are synthetic and do not prove extraction quality on a real public datasheet.
+- Deterministic Project 6 evidence is ready for synthetic portfolio discussion, but the interactive Streamlit path is pending verification.
 - The project model is implemented in the deterministic core, but the Streamlit shell does not expose full project save/load yet.
 - Full validation output exists in the deterministic core but is not fully wired into the generated review report or UI yet.
 - Streamlit crop/click behavior is not browser-verified in this checkout.
@@ -140,4 +141,4 @@ Needs review
 
 ## Safe To Publish Status
 
-Needs review. The framing and sample data are synthetic and public-safe, but the implementation, captures, and engineering claims require qualified review before publication.
+Needs review. The deterministic evidence and sample data are synthetic and public-safe, but the interactive Streamlit/browser path, captures, downstream adapters, and engineering use still require verification and qualified review before any stronger claim.

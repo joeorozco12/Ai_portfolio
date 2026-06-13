@@ -4,7 +4,7 @@
 
 > Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
 
-Publication classification: Needs review
+Publication classification: Safe to publish
 
 ## Problem
 
@@ -24,7 +24,7 @@ For interview QR use, publish `ux-console/` as the static site root and point th
 
 - Generated UX console data: [ux-console/data/portfolio_workflows.js](ux-console/data/portfolio_workflows.js)
 - Project artifact packages from Requirements-to-Verification, WCCA Prep, Design Review Readiness, and Lighting Feasibility.
-- Review-log template: [ux-console/review/review_log.csv](ux-console/review/review_log.csv)
+- Review-log records: [ux-console/review/review_log.csv](ux-console/review/review_log.csv)
 
 ## Outputs
 
@@ -52,7 +52,7 @@ All visible examples are synthetic automotive lighting workflow rows, statuses, 
 - Every route keeps the synthetic/demo label and human-review note visible.
 - `Export ready` is package-readiness only, not engineering approval.
 - `Safe to publish` is blocked unless the review-log validator confirms the required publication checks.
-- Screenshots remain `Needs review` until Jose explicitly approves publication.
+- Screenshots were reviewed for synthetic portfolio use on 2026-06-13; generated UI labels may still show `Needs review` as workflow gates.
 
 ## Codex Contribution
 
@@ -79,7 +79,7 @@ Jose defines the portfolio proof objective, project scope, review boundary, synt
 
 ## Risks And Mitigations
 
-- Risk: a polished console could look like engineering approval. Mitigation: the review boundary and `Needs review` state stay visible on every route.
+- Risk: a polished console could look like engineering approval. Mitigation: the review boundary and generated `Needs review` workflow state stay visible on every route.
 - Risk: screenshots may be mistaken for production tooling. Mitigation: the note frames the console as a local portfolio/workflow shell.
 - Risk: publication status could be set accidentally. Mitigation: validator blocks unsafe `Export ready` and `Safe to publish` transitions.
 
@@ -87,9 +87,8 @@ Jose defines the portfolio proof objective, project scope, review boundary, synt
 
 - Deploy the GitHub Pages workflow and verify the public `/tools` route from a phone away from the Mac.
 - Generate the final QR code only after the GitHub Pages URL is stable.
-- Add real reviewer-disposition rows after Jose completes a review pass.
 - Add final publication captions for each screenshot.
 
 ## Safe To Publish Status
 
-Needs review.
+Safe to publish for synthetic portfolio demonstration. Final QR use still requires public deployment and clean-browser verification.

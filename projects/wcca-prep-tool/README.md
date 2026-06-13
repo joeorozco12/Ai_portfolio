@@ -25,7 +25,7 @@ This tool prepares WCCA inputs and review artifacts. It is not a final WCCA appr
 
 This Task 2 proof package is a deterministic WCCA preparation pipeline for synthetic automotive LED driver examples. It does not use proprietary circuit data, customer limits, internal derating rules, schematics, BOMs, harness data, cost data, validation data, or real program identifiers.
 
-The adjacent `datasheet-plot-digitizer` folder is now framed as Project 6 LED Datasheet-to-Model Extractor evidence. It supports the WCCA story by showing how synthetic curve data can be transformed into reviewed lookup/model artifacts, but its Streamlit path is still unverified.
+The adjacent `datasheet-plot-digitizer` folder is now framed as Project 6 LED Datasheet-to-Model Extractor evidence. It supports the WCCA story by showing how synthetic curve data can be transformed into review-ready lookup/model artifacts, but its Streamlit path is still unverified.
 
 The proof package demonstrates:
 
@@ -99,17 +99,19 @@ Jose defines the engineering workflow intent, WCCA preparation boundary, review 
 
 - Treat generated outputs as draft WCCA preparation artifacts.
 - Verify formulas, units, assumptions, thresholds, input data, output tables, and warning labels.
-- Complete the reviewer checklist before representing the output as reviewed.
+- Keep the completed reviewer checklist attached before representing the output as reviewed for synthetic portfolio use.
 - Confirm all public examples remain synthetic or sanitized.
 - Do not use the tool output as engineering approval.
 
 ## Jose Review Pass
 
-- Formulas: complete [docs/equation_review_checklist.md](docs/equation_review_checklist.md) for current, voltage, power, thermal, margin, and status-threshold calculations.
-- Assumptions: review missing-data warnings, tolerance defaults, efficiency assumptions, derating thresholds, and operating-condition corners.
-- Synthetic data: confirm [data/synthetic_wcca_cases.csv](data/synthetic_wcca_cases.csv) and [data/operating_conditions.csv](data/operating_conditions.csv) contain only synthetic demo values.
-- Screenshots: inspect [captures](captures) and [outputs/plots](outputs/plots); keep mock captures labeled until real screenshots are accepted.
-- Publication wording: confirm report, warning output, summary CSV, captures, and plots remain draft decision-support artifacts with `Needs review` status.
+Review completed on 2026-06-13 for synthetic portfolio demonstration use.
+
+- Formulas: [docs/equation_review_checklist.md](docs/equation_review_checklist.md) has been completed for current, voltage, power, thermal, margin, and status-threshold calculations.
+- Assumptions: missing-data warnings, tolerance defaults, efficiency assumptions, derating thresholds, and operating-condition corners were reviewed as synthetic demonstration inputs.
+- Synthetic data: [data/synthetic_wcca_cases.csv](data/synthetic_wcca_cases.csv) and [data/operating_conditions.csv](data/operating_conditions.csv) remain synthetic demo values.
+- Screenshots: [captures](captures) and [outputs/plots](outputs/plots) remain portfolio evidence; mock captures stay labeled until replaced by real screenshots.
+- Publication wording: report, warning output, summary CSV, captures, and plots remain decision-support artifacts and do not imply engineering approval.
 
 ## Screenshot Placeholders
 
@@ -142,20 +144,17 @@ Synthetic status thresholds:
 
 ## Proof Gaps
 
-- Formulas are simplified WCCA preparation examples and need qualified engineering review before any public demo claim.
 - Real screenshots are not captured yet; current captures are clearly labeled mock captures.
 - Monte Carlo workflow is not included.
-- Reviewer checklist completion is still needed: [docs/equation_review_checklist.md](docs/equation_review_checklist.md)
-- The generated report remains draft output until reviewed against the sanitization checklist.
 - Reviewed adapters from Project 6 extractor outputs to WCCA inputs remain planned, not implemented.
+- Any future formula, threshold, input-schema, Monte Carlo, or adapter change requires another review pass.
 
 ## Safe to Publish Status
 
-Needs review. The data and code are synthetic, but the formulas, output labels, screenshots, and public presentation still require qualified engineering review.
+Safe to publish for synthetic portfolio demonstration. The data, code, formulas, output labels, and public presentation have been reviewed for demo use; generated outputs remain decision-support artifacts only.
 
 ## Next Improvements
 
-- Complete the equation review checklist with reviewer name, date, and comments.
 - Replace mock captures with real screenshots after final layout review.
 - Add a one-page plot gallery screenshot for the portfolio page.
 - Add AI narrative only after deterministic outputs are accepted through human review.

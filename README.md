@@ -4,7 +4,7 @@
 
 > Human Review Required: AI-generated outputs are decision-support artifacts only. A qualified engineer owns final review and approval.
 
-Publication classification: Needs review
+Publication classification: Safe to publish
 
 ## Purpose
 
@@ -31,7 +31,7 @@ The console is browser-only and does not require login, backend services, upload
 - LED Datasheet-to-Model Extractor
 - Codex Tool Development Case Study
 
-All examples are synthetic or sanitized. Outputs remain `Needs review` until Jose completes and records a qualified review pass.
+All examples are synthetic or sanitized. Jose completed and recorded a qualified synthetic portfolio review pass on 2026-06-13. Generated outputs may still show `Needs review` labels because they remain decision-support artifacts, not engineering approval.
 
 ## Local Validation
 

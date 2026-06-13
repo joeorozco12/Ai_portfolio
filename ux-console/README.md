@@ -43,7 +43,7 @@ The app is dependency-free and can be opened directly in a browser. The data bun
 
 - Generated outputs and reviewer decisions stay separate.
 - Browser demos run locally in the visitor's browser.
-- Every project remains `Needs review` until qualified review evidence exists.
+- Generated console data retains `Needs review` workflow gates; qualified review evidence is stored separately in [review/review_log.csv](review/review_log.csv).
 - `Export ready` is package-readiness only, not engineering approval.
 - `Safe to publish` requires synthetic-data, human-review, restricted-detail, and AI-approval wording checks.
 
@@ -63,7 +63,7 @@ Validate reviewer dispositions:
 python3 tools/validate_ux_console_review.py
 ```
 
-The default review log is [review/review_log.csv](review/review_log.csv). It is a template until Jose records review decisions.
+The default review log is [review/review_log.csv](review/review_log.csv). It now records the 2026-06-13 synthetic portfolio review pass while keeping reviewer decisions separate from generated deterministic outputs.
 
 ## Publish
 
@@ -77,8 +77,8 @@ The workflow uploads only `ux-console/` as the static Pages artifact. The QR cod
 
 ## Screenshot Evidence
 
-Console screenshots are stored in [screenshots](screenshots). They are portfolio evidence only and remain `Needs review` until publication review is complete.
+Console screenshots are stored in [screenshots](screenshots). They are portfolio evidence only; generated labels may retain `Needs review` to preserve the human-review boundary.
 
 ## Publication Classification
 
-Needs review.
+Safe to publish for synthetic portfolio demonstration. Final QR use still requires public deployment and clean-browser verification.

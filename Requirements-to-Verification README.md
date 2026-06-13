@@ -12,11 +12,11 @@ Codex-assisted engineering workflow that converts synthetic automotive-lighting 
 - Working prototype: [projects/requirements-to-verification/README.md](projects/requirements-to-verification/README.md)
 - Case study page: [projects/requirements-to-verification.md](projects/requirements-to-verification.md)
 - Sample input CSV: [Synthetic Requirements Sample.csv](Synthetic%20Requirements%20Sample.csv) with 25 synthetic rows
-- Publication classification: Needs review
+- Publication classification: Safe to publish
 
 ## Status
 
-Working deterministic prototype added for Project 1. The current local demo uses 25 synthetic requirements and regenerated CSV/Markdown/capture outputs. Public publication still needs qualified human review of generated outputs and capture files.
+Working deterministic prototype added for Project 1. The current local demo uses 25 synthetic requirements and regenerated CSV/Markdown/capture outputs. Qualified synthetic portfolio review was completed on 2026-06-13; generated outputs remain decision-support artifacts only.
 
 ## Problem
 
@@ -33,7 +33,7 @@ Synthetic automotive lighting module with low beam, high beam, DRL dimming, diag
 3. Classify subsystem, requirement type, and proposed verification method.
 4. Flag ambiguity, missing assumptions, and review risks.
 5. Export trace matrix, unresolved-questions list, and human-review checklist.
-6. Require qualified engineer review before any artifact is treated as accepted.
+6. Keep qualified engineer review separate from generated outputs before any artifact is treated as accepted for synthetic portfolio use.
 
 ## Inputs
 
@@ -132,13 +132,12 @@ Jose defines the engineering taxonomy, decides acceptable verification mappings,
 ## Proof Gaps
 
 - Replace Markdown capture placeholders with final reviewed screenshots only if needed for the portfolio page.
-- Add reviewer disposition fields beyond placeholders if Jose completes a review pass.
 - Add a short parser/test transcript image if Markdown command output is not enough for the interview demo.
-- Complete final human review before publishing externally.
+- Future rule, schema, input, or visual changes require a new review pass.
 
 ## Next Improvements
 
-- Add optional Streamlit or static HTML review UI after CLI evidence is reviewed.
+- Add optional Streamlit or static HTML review UI if CLI evidence needs a lighter demo surface.
 - Add more parser tests for configurable rule dictionaries.
 - Add real screenshot pair if the static capture files are not enough for the portfolio page.
 - Add short demo video using synthetic data after reviewer signoff.
@@ -146,4 +145,4 @@ Jose defines the engineering taxonomy, decides acceptable verification mappings,
 
 ## Safe to Publish Status
 
-Needs review. The written content and sample CSV are synthetic, but the public page should not be published until screenshot placeholders are replaced with public-safe images and a qualified reviewer confirms the output package contains no restricted content.
+Safe to publish for synthetic portfolio demonstration. The written content, sample CSV, generated outputs, and capture files have been reviewed for public-safe demo use; they do not approve requirements or verification decisions.

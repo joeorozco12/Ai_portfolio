@@ -6,11 +6,11 @@
 
 ## Capture Type
 
-Screenshot placeholder for the current LED Datasheet Curve Studio Streamlit workflow shell.
+Screenshot placeholder for the current LED Datasheet Curve Studio Streamlit workflow shell. This is not browser-verified UI evidence.
 
 ## Problem
 
-The interactive digitizer needs a screenshot-ready view that proves the workflow has import, calibration, point-entry, review, and export controls without exposing controlled source material.
+The interactive digitizer still needs a browser-verified screenshot-ready view that demonstrates import, calibration, point-entry, review, and export controls without exposing controlled source material.
 
 ## Engineering Context
 
@@ -18,7 +18,7 @@ This placeholder belongs to the AI-Assisted WCCA Prep Tool as a supporting LED d
 
 ## Workflow
 
-1. Open the local Streamlit shell.
+1. After runtime dependencies are installed, open the local Streamlit shell for browser verification.
 2. Use the `Project Setup` tab to enter synthetic project metadata, intended use, and review status.
 3. Use the `Source Import` tab to enter synthetic/public source metadata and preview a PDF or image source.
 4. Use the `Crop & Calibration` tab to set numeric crop-region coordinates and x/y axis references.
@@ -43,9 +43,9 @@ This placeholder belongs to the AI-Assisted WCCA Prep Tool as a supporting LED d
 - Export-button state reference
 - Human-review gate reference
 
-## Current Implemented Screen State
+## Documented Shell State Pending Browser Verification
 
-- Tabs are visible for `Project Setup`, `Source Import`, `Crop & Calibration`, `Point Entry`, `Fit Validation`, `Review Checklist`, and `Export Review`.
+- The intended shell tabs are `Project Setup`, `Source Import`, `Crop & Calibration`, `Point Entry`, `Fit Validation`, `Review Checklist`, and `Export Review`.
 - The synthetic-data label and human-review warning are visible near the page header.
 - Metadata fields use synthetic defaults such as `SYN-LED-170`, `Synthetic LED Supplier`, and `synthetic_page_20`.
 - Source import is labeled for synthetic/public PDF or image preview only.
@@ -79,7 +79,7 @@ The visible sample should use `SYN-LED-170`, `synthetic_datasheet_style_plot`, a
 
 ## Codex Contribution
 
-Codex created the Streamlit workflow shell, refreshed the Task 6 workflow structure, updated the screenshot placeholder, and implemented the export-gate behavior intended for the UI capture.
+Codex created the Streamlit workflow shell, refreshed the Task 6 workflow structure, updated the screenshot placeholder, and implemented export-gate logic intended for later browser verification.
 
 ## Jose Contribution
 
@@ -107,7 +107,7 @@ Jose defines the engineering workflow placement, acceptable screenshot framing, 
 
 ## Completed Work
 
-- Placeholder reflects the current seven-step tabbed Streamlit shell.
+- Placeholder documents the current seven-step tabbed Streamlit shell target pending browser verification.
 - Export review gate is documented.
 - Fit validation and review checklist states are documented.
 - Synthetic labels and human-review controls are specified for the eventual screenshot.

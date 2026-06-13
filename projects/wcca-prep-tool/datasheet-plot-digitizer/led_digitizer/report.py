@@ -311,8 +311,8 @@ This package demonstrates a synthetic automotive-lighting data-prep workflow. It
 
 ## Workflow
 
-1. Load a public or synthetic datasheet plot image.
-2. Select the plot region and record source metadata.
+1. Load synthetic curve points or a public/synthetic datasheet-style source record.
+2. Record plot-region and source metadata for review.
 3. Calibrate the x and y axes from known reference points.
 4. Digitize curve points by manual picking first.
 5. Fit a shape-preserving interpolation model for lookup generation.
@@ -338,7 +338,7 @@ This package demonstrates a synthetic automotive-lighting data-prep workflow. It
 
 - Overlay verification image: `{artifacts.get("overlay_png", "")}`
 - Streamlit workflow placeholder: `captures/streamlit_workflow_mock.md`
-- Future capture: export package review screen
+- Future capture: export package review screen after Streamlit/browser verification
 
 ## Sanitized Sample Data
 
@@ -418,8 +418,8 @@ Jose defines the LED engineering data-prep use case, WCCA and feasibility workfl
 
 - Structured data extraction workflow
 - Metadata modeling for engineering traceability
-- Deterministic transformation from pixels to engineering units
-- Curve-fit generation from reviewed samples
+- Deterministic transformation from source-pixel records to engineering units
+- Curve-fit generation from review-controlled samples
 - Human-in-the-loop review gates
 - Public-safe artifact generation
 
@@ -451,7 +451,7 @@ Jose defines the LED engineering data-prep use case, WCCA and feasibility workfl
 ## Next Improvements
 
 - Add a reviewed-status gate for downstream WCCA and feasibility adapters.
-- Add browser-based image click capture for calibration and curve picking.
+- Add browser-verified image click capture for calibration and curve picking.
 - Add optional assisted extraction after manual-review controls are stable.
 - Integrate the full curve-fit validation report into this generated package and the Streamlit review workflow.
 - Add multi-curve export packaging from one source plot.
@@ -461,7 +461,7 @@ Jose defines the LED engineering data-prep use case, WCCA and feasibility workfl
 
 - The current generated sample is synthetic and does not prove extraction quality on a real public datasheet.
 - Validation status is an export precheck in this generated report; qualified engineering review is still required.
-- Streamlit image click/crop interaction still needs a browser component or custom canvas package.
+- Interactive Streamlit image click/crop behavior is pending browser verification and still needs a browser component or custom canvas package.
 - Optional PDF rendering and assisted extraction require runtime dependencies from `requirements.txt`.
 - A qualified engineering review signoff has not been completed.
 

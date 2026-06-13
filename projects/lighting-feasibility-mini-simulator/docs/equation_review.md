@@ -6,7 +6,17 @@
 
 ## Scope
 
-This document describes the deterministic equations used by `feasibility_engine.py` for synthetic automotive lighting feasibility screening. These equations are intentionally simple and must be reviewed by a qualified engineer before use in any public portfolio artifact or engineering discussion.
+This document describes the deterministic equations used by `feasibility_engine.py` for synthetic automotive lighting feasibility screening. These equations are intentionally simple and are accepted only for synthetic portfolio demonstration use.
+
+## Review Disposition
+
+| Field | Entry |
+|---|---|
+| Reviewer name | Jose Orozco |
+| Review date | 2026-06-13 |
+| Review status | Accepted for synthetic portfolio use |
+| Review basis | Equations, units, synthetic thresholds, sensitivity ranges, limitations, and publication wording reviewed for public-safe demonstration use. |
+| Boundary | This review does not approve engineering decisions, release designs, validate requirements, or authorize use with proprietary or production data. |
 
 ## Variables
 
@@ -167,7 +177,7 @@ Units: degrees C. Negative margin is treated as a fail trigger.
 
 ## Pass, Marginal, Fail Thresholds
 
-Engineering review required: all thresholds below are synthetic demonstration thresholds and must be reviewed before publication or reuse.
+Review disposition: all thresholds below are accepted as synthetic demonstration thresholds for portfolio screening only. They must be re-reviewed before any change, reuse, or non-demo application.
 
 | Status | Deterministic Trigger |
 |---|---|
@@ -177,12 +187,12 @@ Engineering review required: all thresholds below are synthetic demonstration th
 
 ## Review Items
 
-- Confirm whether each equation is acceptable for a synthetic portfolio demonstration.
-- Confirm whether the thermal model should remain this simple or be replaced with a more explicit assumptions table.
-- Confirm whether voltage headroom and boost duty thresholds are appropriate as demonstration values.
-- Confirm whether ratio thresholds should be adjusted or labeled as examples only.
-- Confirm that no result is described as design approval.
+- Each equation is acceptable for a synthetic portfolio demonstration.
+- The simple thermal model may remain, with limitations kept visible in the README, generated outputs, and screenshots.
+- Voltage headroom and boost duty thresholds are acceptable as demonstration values only.
+- Ratio thresholds are acceptable when labeled as synthetic screening examples.
+- No result may be described as design approval or engineering release disposition.
 
 ## Safe To Publish Status
 
-Needs review. This document contains synthetic equations and thresholds, but qualified engineering review is required before publication.
+Safe to publish for synthetic portfolio demonstration. This document contains reviewed synthetic equations and thresholds, but all outputs remain decision-support artifacts only.

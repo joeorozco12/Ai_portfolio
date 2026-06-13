@@ -10,7 +10,7 @@ LED datasheet plots often contain voltage, current, temperature, luminous-flux, 
 
 ## Engineering Context
 
-LED Datasheet Curve Studio is the implemented evidence for the active Project 6 framing: LED Datasheet-to-Model Extractor. It also remains a supporting data-preparation tool under the AI-Assisted WCCA Prep Tool. It converts public or synthetic LED datasheet-style plot images into calibrated, reviewable curve data packages for WCCA, MATLAB/Python simulation, thermal derating, luminous-flux prediction, feasibility screening, and design-review preparation.
+LED Datasheet Curve Studio is the deterministic evidence package for the active Project 6 framing: LED Datasheet-to-Model Extractor. It also remains a supporting data-preparation tool under the AI-Assisted WCCA Prep Tool. The tested path converts synthetic/public-safe curve records and source-pixel metadata into calibrated, reviewable curve data packages for WCCA, MATLAB/Python simulation, thermal derating, luminous-flux prediction, feasibility screening, and design-review preparation. The interactive Streamlit/browser path is pending verification and should not be presented as complete.
 
 This project is not positioned as a standalone AI approval demo. It is a deterministic, review-controlled workflow component for turning datasheet-style curve inputs into traceable engineering artifacts.
 
@@ -19,8 +19,8 @@ The included sample uses only synthetic datasheet-style data and a synthetic LED
 ## Workflow
 
 1. Create or load a `.ledcurve.json` Curve Studio project in the deterministic core.
-2. Use synthetic seed projects or import a public/synthetic PDF/image source.
-3. Render an optional public/synthetic PDF page or preview a PNG/JPEG image.
+2. Use synthetic seed projects for the deterministic evidence path.
+3. Treat public/synthetic PDF or image preview as part of the pending Streamlit/browser workflow until runtime QA is completed.
 4. Record source, crop, axis, curve, assumption, and review metadata.
 5. Calibrate x and y axes from known reference points.
 6. Pick or enter curve points manually, with optional draft assisted candidates when enabled.
@@ -30,7 +30,7 @@ The included sample uses only synthetic datasheet-style data and a synthetic LED
 
 ## Inputs
 
-- Public or synthetic datasheet PDF/image
+- Synthetic point tables, synthetic demo projects, or public/synthetic source metadata
 - Source category marked as `public` or `synthetic`
 - Selected plot region
 - X-axis and y-axis calibration points
@@ -88,14 +88,14 @@ Each demo project includes source metadata, assumptions, pending engineering-rev
 - Assisted candidate rows preserve source pixels, method, confidence, notes, and review status.
 - Overlay verification is required before downstream use.
 - CSV rows include source pixels, source page, method, fit model, and review status.
-- Export is blocked in the Streamlit shell until the engineer-review checkbox is selected.
+- The Streamlit shell includes export gates, but the browser path remains pending verification.
 - Digitized plot data is reference-only and must not be treated as guaranteed device limits.
 - The tool does not approve LED design values.
 - Exported data requires qualified engineer review before WCCA, MATLAB/Python simulation, thermal derating, luminous-flux prediction, feasibility screening, or design-review use.
 
 ## Codex Contribution
 
-Codex scaffolded the local Streamlit shell, deterministic calibration math, dependency-free PCHIP curve-fit builder, export modules, synthetic sample data, overlay PNG generator, Markdown report generator, unit tests, and local task-control documentation.
+Codex scaffolded the local Streamlit shell, deterministic calibration math, dependency-free PCHIP curve-fit builder, export modules, synthetic sample data, overlay PNG generator, Markdown report generator, unit tests, and local task-control documentation. Only the deterministic artifact path is currently supported by tests in this checkout; the interactive Streamlit path still needs browser verification.
 
 ## Jose Contribution
 
@@ -194,8 +194,8 @@ The deterministic core and tested synthetic artifact path use only the Python st
 
 ## Next Improvements
 
-- Build a clearer Streamlit project workflow UI around the deterministic core.
-- Add browser-verified screenshots after optional runtime dependencies are installed.
+- Verify the interactive Streamlit project workflow in a browser after optional runtime dependencies are installed.
+- Add browser-verified screenshots only after the Streamlit layout and export gates are reviewed.
 - Integrate the full curve-fit validation report into the Streamlit review workflow and generated Markdown package.
 - Wire the draft assisted extraction preview into the Streamlit UI after manual overlay controls are browser-verified.
 - Add reviewed adapters that feed WCCA and lighting-feasibility inputs only after signoff.
@@ -203,6 +203,7 @@ The deterministic core and tested synthetic artifact path use only the Python st
 
 ## Proof Gaps
 
+- Deterministic Project 6 evidence is ready for synthetic portfolio discussion, but the interactive Streamlit/browser path is pending verification.
 - The sample output is synthetic and does not validate extraction quality on a real public datasheet.
 - Reusable demo projects are synthetic seed data only; they are not reviewed device limits.
 - Assisted extraction currently groups provided candidate pixels only; it is not a reviewed image-recognition workflow and has not been validated on real public datasheets.
@@ -219,4 +220,4 @@ Needs review
 
 ## Safe To Publish Status
 
-Needs review. The code and sample data are synthetic and sanitized, but the app workflow, screenshots, and engineering claims require qualified review before publication.
+Needs review. The deterministic code path and sample data are synthetic and sanitized; the interactive Streamlit/browser path, screenshots, downstream adapters, and engineering use still require verification and qualified review before any stronger claim.

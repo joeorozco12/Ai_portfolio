@@ -80,11 +80,13 @@ The sample dataset uses synthetic automotive lighting examples only. It includes
 
 ## Jose Review Pass
 
-- Formulas: review LED voltage/current, output power, driver loss, voltage headroom, boost duty, thermal margin, and status-threshold equations.
-- Assumptions: inspect synthetic limits, thermal resistance values, efficiency tolerance, ambient temperature, and sensitivity sweep ranges.
-- Synthetic data: confirm [data/synthetic_lighting_cases.csv](data/synthetic_lighting_cases.csv) and generated outputs contain only synthetic demo cases.
-- Screenshots: inspect [outputs/screenshots/portfolio_capture_summary.md](outputs/screenshots/portfolio_capture_summary.md) and [outputs/plots](outputs/plots) before using them as portfolio proof.
-- Publication wording: confirm `Pass`, `Marginal`, and `Fail` remain screening labels only and all artifacts stay `Needs review`.
+Review completed on 2026-06-13 for synthetic portfolio demonstration use.
+
+- Formulas: LED voltage/current, output power, driver loss, voltage headroom, boost duty, thermal margin, and status-threshold equations were reviewed in [docs/equation_review.md](docs/equation_review.md).
+- Assumptions: synthetic limits, thermal resistance values, efficiency tolerance, ambient temperature, and sensitivity sweep ranges were reviewed as demonstration values.
+- Synthetic data: [data/synthetic_lighting_cases.csv](data/synthetic_lighting_cases.csv) and generated outputs remain synthetic demo cases.
+- Screenshots: [outputs/screenshots/portfolio_capture_summary.md](outputs/screenshots/portfolio_capture_summary.md) and [outputs/plots](outputs/plots) remain portfolio proof assets only.
+- Publication wording: `Pass`, `Marginal`, and `Fail` remain first-pass screening labels and do not imply engineering approval.
 
 ## Equations
 
@@ -128,7 +130,7 @@ The deterministic status policy is intentionally simple:
 - `Marginal`: any calculated stress ratio is at least `0.85`, voltage headroom is `0.75 V` or less, boost duty is at least `85%` of the synthetic maximum, or thermal margin is `10 C` or less.
 - `Pass`: no fail or marginal triggers are present.
 
-Engineering review is required for all equations, limits, and thresholds before using this project in any external portfolio discussion.
+The equations, limits, and thresholds have been reviewed for synthetic external portfolio discussion only. Any change or non-demo reuse requires a new review pass.
 
 ## Limitations
 
@@ -171,10 +173,10 @@ Jose defines the engineering framing, acceptable first-pass screening scope, rev
 
 ## Next Improvements
 
-- Add cross-variable sweep combinations after single-variable behavior is reviewed.
-- Add reviewed equation annotations from a qualified engineer.
+- Add cross-variable sweep combinations if deeper interaction behavior becomes useful for the portfolio.
+- Add inline equation annotations or examples if a future reviewer wants more traceability in the docs.
 - Add the reviewed Project 6 adapter only after the LED model CSV/JSON schema and review-status values are finalized.
-- Add a Streamlit shell only after the deterministic engine and thresholds are reviewed.
+- Add a Streamlit shell only if an interactive local UI becomes a higher-priority proof item.
 
 ## How To Run
 
@@ -212,8 +214,8 @@ python3 feasibility_engine.py --skip-sweeps
 
 ## Publication Classification
 
-Needs review
+Safe to publish
 
 ## Safe To Publish Status
 
-Needs review. The examples are synthetic, but the equation set, thresholds, visual outputs, and portfolio claims require qualified engineering review before publication.
+Safe to publish for synthetic portfolio demonstration. The examples, equation set, thresholds, visual outputs, and portfolio claims have been reviewed for demo use; the simulator remains screening-only and does not approve engineering decisions.
